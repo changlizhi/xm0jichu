@@ -1,4 +1,4 @@
-package ml1changliangs
+package ml2changliangs
 
 const (
 	JinZhi2   = 2
