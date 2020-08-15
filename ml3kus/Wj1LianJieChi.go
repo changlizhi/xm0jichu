@@ -9,38 +9,34 @@ import (
 )
 
 func init() {
-	log.Println("初始化连接池开始")
-	danShiLi := huoQuShiLi()
+	huoQuShiLi()
 	if danShiLi.lianJieChi == nil {
-		log.Println("初始化连接池失败...")
 		os.Exit(1)
-	} else {
-		log.Println("初始化连接池成功...", danShiLi.lianJieChi)
 	}
-}
-
-func HuoQuLianJieChi() *sql.DB {
-	ljc := huoQuShiLi()
-	return ljc.lianJieChi
 }
 
 type GoHouTaiFuWuChi struct {
 	lianJieChi *sql.DB
 }
-
-var danShiLi *GoHouTaiFuWuChi
-var suoShiLi sync.Once
-var err error
+var(
+  err error
+  suoShiLi sync.Once
+  danShiLi *GoHouTaiFuWuChi
+)
 
 func huoQuShiLi() *GoHouTaiFuWuChi {
 	suoShiLi.Do(func() {
 		danShiLi = &GoHouTaiFuWuChi{}
 		danShiLi.lianJieChi, err = sql.Open("mysql", "root:rootclz@tcp(127.0.0.1:3306)/hfx")
 		if err != nil {
-			log.Fatal(err)
+			log.Println("建立链接失败",err)
+      os.Exit(1)
 		}
-		danShiLi.lianJieChi.SetMaxOpenConns(10)
+		danShiLi.lianJieChi.SetMaxOpenConns(50)
 		danShiLi.lianJieChi.SetMaxIdleConns(5)
 	})
 	return danShiLi
+}
+func GaoBingFaHuoQu() *sql.DB {
+  return danShiLi.lianJieChi
 }
