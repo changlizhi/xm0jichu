@@ -17,8 +17,11 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	// PRIMARY KEY (`ZhuJian`)
 	//  )
 	//  ENGINE=InnoDB
-
-	biaoMing := canShu.ShuJu[ml2changliangs.Sz0][ml2changliangs.Ceng1].(string)                  //把数据第一个拿出来当作表名
+  // 这里要求传入的ShuJu第一个必须是表名字符串，
+  // 第二个必须是主键名指定
+  // 第三个必须是字段列表
+	// 后续强化这个校验
+  biaoMing := canShu.ShuJu[ml2changliangs.Sz0][ml2changliangs.Ceng1].(string)                  //把数据第一个拿出来当作表名
 	zhuJian := canShu.ShuJu[ml2changliangs.Sz1][ml2changliangs.Ceng1].(string)                  //逐渐名，也可能是组合主键
 	ziDuans := canShu.ShuJu[ml2changliangs.Sz2][ml2changliangs.Ceng1].([]map[string]interface{}) //把字段拿出来
 
