@@ -3,7 +3,7 @@ package ml1gongjustests
 import(
   "log"
   "testing"
-  "xm1shengcheng/ml0gongjus"
+  "xm0jichu/ml0gongjus"
 )
 func TestBase64(t *testing.T){
   log.Println(ml0gongjus.Base64BianMa("abcdefghijklmn"))

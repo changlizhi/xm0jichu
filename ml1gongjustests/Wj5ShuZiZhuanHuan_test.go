@@ -2,7 +2,7 @@ package ml1gongjustests
 import(
   "log"
   "testing"
-  "xm1shengcheng/ml0gongjus"
+  "xm0jichu/ml0gongjus"
 )
 func TestString2Float64(t *testing.T){
   ret:=ml0gongjus.String2Float64("1.111")

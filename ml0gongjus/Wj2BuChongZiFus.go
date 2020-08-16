@@ -2,18 +2,18 @@ package ml0gongjus
 
 import (
 	"strings"
-	"xm1shengcheng/ml1changliangs"
+	"xm0jichu/ml2changliangs"
 )
 
 func BuChongChuan(geShu int,ziFu string)string {
-	if(geShu < ml1changliangs.Sz1){
-		return ml1changliangs.KongZiFu
+	if(geShu < ml2changliangs.Sz1){
+		return ml2changliangs.KongZiFu
 	}
 	retshuzu := []string{}
-	for i := ml1changliangs.Sz0 ;i < geShu ; i++{
+	for i := ml2changliangs.Sz0 ;i < geShu ; i++{
 		retshuzu = append(retshuzu, ziFu)
 	}
-	return strings.Join(retshuzu, ml1changliangs.KongZiFu)
+	return strings.Join(retshuzu, ml2changliangs.KongZiFu)
 }
 
 func ZuoBuChong(geShu int,ziFu string,daiBuChong string) string {
@@ -48,29 +48,29 @@ func YouBuQi(zongWeiShu int,ziFu string,daiBuChong string) string {
 }
 
 func ShuZiZiFuBu1Ge0(ziFu string)string{
-	return YouBuChong(ml1changliangs.Sz1,ml1changliangs.Zf0,ziFu)
+	return YouBuChong(ml2changliangs.Sz1,ml2changliangs.Zf0,ziFu)
 }
 func ShuZiZiFuBu2Ge0(ziFu string)string{
-	return YouBuChong(ml1changliangs.Sz2,ml1changliangs.Zf0,ziFu)
+	return YouBuChong(ml2changliangs.Sz2,ml2changliangs.Zf0,ziFu)
 }
 func ShuZiZiFuBu3Ge0(ziFu string)string{
-	return YouBuChong(ml1changliangs.Sz3,ml1changliangs.Zf0,ziFu)
+	return YouBuChong(ml2changliangs.Sz3,ml2changliangs.Zf0,ziFu)
 }
 func ShuZiZiFuBu4Ge0(ziFu string)string{
-	return YouBuChong(ml1changliangs.Sz4,ml1changliangs.Zf0,ziFu)
+	return YouBuChong(ml2changliangs.Sz4,ml2changliangs.Zf0,ziFu)
 }
 func ShuZiZiFuBu5Ge0(ziFu string)string{
-	return YouBuChong(ml1changliangs.Sz5,ml1changliangs.Zf0,ziFu)
+	return YouBuChong(ml2changliangs.Sz5,ml2changliangs.Zf0,ziFu)
 }
 func ShuZiZiFuBu6Ge0(ziFu string)string{
-	return YouBuChong(ml1changliangs.Sz6,ml1changliangs.Zf0,ziFu)
+	return YouBuChong(ml2changliangs.Sz6,ml2changliangs.Zf0,ziFu)
 }
 func ShuZiZiFuBu7Ge0(ziFu string)string{
-	return YouBuChong(ml1changliangs.Sz7,ml1changliangs.Zf0,ziFu)
+	return YouBuChong(ml2changliangs.Sz7,ml2changliangs.Zf0,ziFu)
 }
 func ShuZiZiFuBu8Ge0(ziFu string)string{
-	return YouBuChong(ml1changliangs.Sz8,ml1changliangs.Zf0,ziFu)
+	return YouBuChong(ml2changliangs.Sz8,ml2changliangs.Zf0,ziFu)
 }
 func ShuZiZiFuBu9Ge0(ziFu string)string{
-	return YouBuChong(ml1changliangs.Sz9,ml1changliangs.Zf0,ziFu)
+	return YouBuChong(ml2changliangs.Sz9,ml2changliangs.Zf0,ziFu)
 }

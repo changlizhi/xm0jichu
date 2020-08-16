@@ -2,7 +2,7 @@ package ml1gongjustests
 
 import (
   "testing"
-  "xm1shengcheng/ml0gongjus"
+  "xm0jichu/ml0gongjus"
   "log"
 )
 func TestMd5JiaMi(t *testing.T){

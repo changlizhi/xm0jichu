@@ -4,11 +4,11 @@ import(
   "testing"
   "log"
   "time"
-  "xm1shengcheng/ml0gongjus"
-  "xm1shengcheng/ml1changliangs"
+  "xm0jichu/ml0gongjus"
+  "xm0jichu/ml2changliangs"
 )
 func TestString2Time(t *testing.T){
-  ret := ml0gongjus.String2Time("2020-03-16 20:20:20",ml1changliangs.NyrSfm)
+  ret := ml0gongjus.String2Time("2020-03-16 20:20:20",ml2changliangs.NyrSfm)
   log.Println(ret)
 }
 func TestString2TimeNyrSfm(t *testing.T){
@@ -21,7 +21,7 @@ func TestString2TimeNyr(t *testing.T){
 }
 func TestTime2String(t *testing.T){
   ti:=time.Date(9999,12,31,23,59,59,1000,time.Local)
-  ret := ml0gongjus.Time2String(ti,ml1changliangs.NyrSfm)
+  ret := ml0gongjus.Time2String(ti,ml2changliangs.NyrSfm)
   log.Println(ret)
 }
 func TestTime2StringNyr(t *testing.T){

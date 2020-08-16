@@ -2,7 +2,7 @@ package ml1gongjustests
 import(
   "log"
   "testing"
-  "xm1shengcheng/ml0gongjus"
+  "xm0jichu/ml0gongjus"
 )
 func TestHuoquId(t *testing.T){
   ret := ml0gongjus.HuoquId()
