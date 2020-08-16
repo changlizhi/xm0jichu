@@ -11,12 +11,13 @@ type CanShu struct{
   ShuJu []map[string]interface{}
 }
 func HuoQuCeng1YiGe(canShu CanShu)interface{}{
-  return canShu.ShuJu[0]["Ceng1"]
+  return canShu.ShuJu[ml2changliangs.Sz0][ml2changliangs.Ceng1]
 }
 func ZuJianCeng1YiGe(oneShuJu interface{})CanShu{
   retShuJu:= []map[string]interface{}{}
   retOneShuJu:=map[string]interface{}{}
-  retOneShuJu["Ceng1"]=oneShuJu
+  
+  retOneShuJu[ml2changliangs.Ceng1]=oneShuJu
   retShuJu=append(retShuJu,retOneShuJu)
   ret := CanShu{
     ZhuangTai:ml2changliangs.HFX000000000,
