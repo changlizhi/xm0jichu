@@ -6,7 +6,7 @@ import (
 	"xm0jichu/ml2changliangs"
 	"xm0jichu/ml3moxings"
 	"xm0jichu/ml5kus"
-	"xm0jichu/ml0gongjus."
+	"xm0jichu/ml0gongjus"
 )
 
 // 字段表：主键，名称，编码，是否指定，字段值表，是否有行为，校验
@@ -18,4 +18,41 @@ import (
 
 
 func TestChuangJianBiaoMingBiao(t *testing.T) {
+	// 表名表：主键，名称，编码，主键表
+
+	canShu := ml3moxings.CanShu{}
+	canShu.ShuJu = []map[string]interface{}{}
+
+	biaoMing := map[string]interface{}{
+		ml2changliangs.Ceng1: ml2changliangs.BiaoMing,
+	}
+	canShu.ShuJu = append(canShu.ShuJu, biaoMing)
+
+	zhuJian := map[string]interface{}{
+		ml2changliangs.Ceng1: ml2changliangs.ZhuJian,
+	}
+	canShu.ShuJu = append(canShu.ShuJu, zhuJian)
+
+	ziDuans := []map[string]interface{}{}
+
+	ziDuan1 := ml0gongjus.ZuZhuang20BIGINT(ml2changliangs.ZhuJian)
+	ziDuans = append(ziDuans, ziDuan1)
+
+	ziDuan2 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.MingCheng)
+	ziDuans = append(ziDuans, ziDuan2)
+
+	ziDuan3 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.BianMa)
+	ziDuans = append(ziDuans, ziDuan3)
+
+	ziDuan4 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.ZhuJianBiao)
+	ziDuans = append(ziDuans, ziDuan4)
+
+	ziDuansKeyMap := map[string]interface{}{
+		ml2changliangs.Ceng1: ziDuans,
+	}
+
+	canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
+
+	ret := ml5kus.ChuangJianBiao(canShu)
+	log.Println("TestChuangJianBiao,ret---", ret)
 }

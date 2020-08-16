@@ -4,7 +4,6 @@ import (
 	"log"
 	"xm0jichu/ml2changliangs"
 	"xm0jichu/ml3moxings"
-	"xm0jichu/ml5kus"
 	"xm0jichu/ml0gongjus."
 )
 
@@ -52,6 +51,6 @@ func ChuangJianBiaoMingBiao() {
 
 	canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
 
-	ret := ml5kus.ChuangJianBiao(canShu)
+	ret := ChuangJianBiao(canShu)
 	log.Println("TestChuangJianBiao,ret---", ret)
 }
