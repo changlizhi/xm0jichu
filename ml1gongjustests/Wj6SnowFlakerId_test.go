@@ -10,7 +10,7 @@ func TestHuoquId(t *testing.T){
   log.Println(ret)
 }
 func TestHuoQuIdZiFu(t *testing.T){
-  for i:=0;i<4000;i++{
+  for i:=0;i<100000;i++{
     go func(i int){
       ret := ml0gongjus.HuoQuIdZiFu()
       log.Println("TestHuoQuIdZiFu---",i,ret,len(ret))
