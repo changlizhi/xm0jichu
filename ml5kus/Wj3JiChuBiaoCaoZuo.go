@@ -7,14 +7,53 @@ import (
 	"xm0jichu/ml0gongjus"
 )
 
-// 字段指定表：主键，字段表主键，可能值。//字段指定跟字段是一对多的，一个字段有多个指定值
 // 字段行为流表：主键，字段主键，编码，名称，方法名，顺序，总个数，描述。//方法流跟字段是一对多的，查出来之后根据顺序排序即可，即使两个字段的业务方法流是一样的也必须拆成两个值
-// 业务表：主键，业务编码，业务名称，方法流，描述。//这是针对一个业务进行业务流向进行梳理
-// 业务行为流表：主键，业务主键，方法名，顺序，总个数，描述。//方法流跟字段是一一对应的，即使两个业务的业务方法流是一样的也必须拆成两个值
+// 业务表：主键，业务编码，业务名称，方法流，描述。//这是针对一个业务进行业务流向梳理
+// 业务行为流表：主键，业务主键，方法名（唯一的，不用主键是因为更容易辨认），顺序，总个数，描述。//方法流跟字段是一一对应的，即使两个业务的业务方法流是一样的也必须拆成两个值
 // 方法表：主键，方法名，必须参数，可选参数，返回数据，描述。//所有方法流里有的方法都能在这里找到。
 
 // 主键表：主键
 // 字段值表：主键（同主键表的主键），值
+
+func ChuangJianZhiDingBiao() ml3moxings.CanShu{
+  // 字段指定表：主键，字段主键，可能值。//字段指定跟字段是一对多的，一个字段有多个指定值
+  
+	canShu := ml3moxings.CanShu{}
+	canShu.ShuJu = []map[string]interface{}{}
+
+	biaoMing := map[string]interface{}{
+		ml2changliangs.Ceng1: ml2changliangs.ZiDuanZhiDing,
+	}
+	canShu.ShuJu = append(canShu.ShuJu, biaoMing)
+
+	zhuJian := map[string]interface{}{
+		ml2changliangs.Ceng1: ml2changliangs.ZhuJian,
+	}
+	canShu.ShuJu = append(canShu.ShuJu, zhuJian)
+
+	ziDuans := []map[string]interface{}{}
+
+	ziDuan1 := ml0gongjus.ZuZhuangBIGINT(ml2changliangs.ZhuJian,"20")
+	ziDuans = append(ziDuans, ziDuan1)
+
+	ziDuan2 := ml0gongjus.ZuZhuangBIGINT(ml2changliangs.ZiDuanZhuJian,"20")
+	ziDuans = append(ziDuans, ziDuan2)
+
+  ziDuan3 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.KeNengZhi,"50")
+  ziDuans = append(ziDuans, ziDuan3)
+
+  ziDuan4 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.KeNengZhiMiaoShu,"50")
+  ziDuans = append(ziDuans, ziDuan4)
+
+	ziDuansKeyMap := map[string]interface{}{
+		ml2changliangs.Ceng1: ziDuans,
+	}
+
+	canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
+
+	ret := ChuangJianBiao(canShu)
+  return ret
+}
 
 func ChuangJianZiDuanBiao() ml3moxings.CanShu{
   // 字段表：主键，名称，编码，字段值表，正则，是否指定，是否有行为

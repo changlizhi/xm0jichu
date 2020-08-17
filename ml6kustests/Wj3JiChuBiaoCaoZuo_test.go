@@ -14,4 +14,8 @@ func TestChuangJianBiaoMingBiao(t *testing.T){
   ret := ml5kus.ChuangJianBiaoMingBiao()
   log.Println("TestChuangJianBiaoMingBiao,ret---",ret)
 }
+func TestChuangJianZhiDingBiao(t *testing.T){
+  ret := ml5kus.ChuangJianZhiDingBiao()
+  log.Println("TestChuangJianZhiDingBiao,ret---",ret)
+}
 
