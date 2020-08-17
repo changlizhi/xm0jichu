@@ -7,9 +7,14 @@ const(
 const(
 VARCHAR="VARCHAR"
 BIGINT="BIGINT"
+INT="INT"
 )
 //字段名
 const(
+ZiDuan="ZiDuan"
+ZhengZe="ZhengZe"
+ShiFouZhiDing="ShiFouZhiDing"
+ShiFouYouXingWei="ShiFouYouXingWei"
 ZhuJian="ZhuJian"
 MingCheng="MingCheng"
 BianMa="BianMa"

@@ -1,26 +1,23 @@
 package ml5kus
 
 import (
-	"log"
+	// "log"
 	"xm0jichu/ml2changliangs"
 	"xm0jichu/ml3moxings"
-	"xm0jichu/ml0gongjus."
+	"xm0jichu/ml0gongjus"
 )
 
-// 字段指定：主键，字段表主键，可能值
-// 字段指定中间表：主键，字段主键，指定主键
-// 字段行为：主键，字段表主键，编码，名称，方法流，描述。//这是针对一个字段进行业务流向进行梳理
-// 字段行为中间表：主键，字段主键，行为主键
+// 字段指定表：主键，字段表主键，可能值。//字段指定跟字段是一对多的，一个字段有多个指定值
+// 字段行为流表：主键，字段主键，编码，名称，方法名，顺序，总个数，描述。//方法流跟字段是一对多的，查出来之后根据顺序排序即可，即使两个字段的业务方法流是一样的也必须拆成两个值
 // 业务表：主键，业务编码，业务名称，方法流，描述。//这是针对一个业务进行业务流向进行梳理
-// 字段方法流表：主键，字段主键，方法名，顺序，总个数，描述。//方法流跟字段是一一对应的，即使两个字段的业务方法流是一样的也必须拆成两个值
-// 业务方法流表：主键，业务主键，方法名，顺序，总个数，描述。//方法流跟字段是一一对应的，即使两个业务的业务方法流是一样的也必须拆成两个值
+// 业务行为流表：主键，业务主键，方法名，顺序，总个数，描述。//方法流跟字段是一一对应的，即使两个业务的业务方法流是一样的也必须拆成两个值
 // 方法表：主键，方法名，必须参数，可选参数，返回数据，描述。//所有方法流里有的方法都能在这里找到。
 
 // 主键表：主键
 // 字段值表：主键（同主键表的主键），值
 
-func ChuangJianZiDuanBiao() {
-  // 字段表：主键，名称，编码，是否指定，字段值表，是否有行为，校验
+func ChuangJianZiDuanBiao() ml3moxings.CanShu{
+  // 字段表：主键，名称，编码，字段值表，正则，是否指定，是否有行为
 	
 	canShu := ml3moxings.CanShu{}
 	canShu.ShuJu = []map[string]interface{}{}
@@ -37,17 +34,26 @@ func ChuangJianZiDuanBiao() {
 
 	ziDuans := []map[string]interface{}{}
 
-	ziDuan1 := ml0gongjus.ZuZhuang20BIGINT(ml2changliangs.ZhuJian)
+	ziDuan1 := ml0gongjus.ZuZhuangBIGINT(ml2changliangs.ZhuJian,"20")
 	ziDuans = append(ziDuans, ziDuan1)
 
-	ziDuan2 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.MingCheng)
+	ziDuan2 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.MingCheng,"50")
 	ziDuans = append(ziDuans, ziDuan2)
 
-	ziDuan3 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.BianMa)
+	ziDuan3 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.BianMa,"50")
 	ziDuans = append(ziDuans, ziDuan3)
 
-	ziDuan4 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.ZhuJianBiao)
+	ziDuan4 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ZhiBiao,"50")
 	ziDuans = append(ziDuans, ziDuan4)
+
+	ziDuan5 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ZhengZe,"50")
+	ziDuans = append(ziDuans, ziDuan5)
+
+	ziDuan6 := ml0gongjus.ZuZhuangINT(ml2changliangs.ShiFouZhiDing,"1")
+	ziDuans = append(ziDuans, ziDuan6)
+
+	ziDuan7 := ml0gongjus.ZuZhuangINT(ml2changliangs.ShiFouYouXingWei,"1")
+	ziDuans = append(ziDuans, ziDuan7)
 
 	ziDuansKeyMap := map[string]interface{}{
 		ml2changliangs.Ceng1: ziDuans,
@@ -56,11 +62,11 @@ func ChuangJianZiDuanBiao() {
 	canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
 
 	ret := ChuangJianBiao(canShu)
-	log.Println("TestChuangJianBiao,ret---", ret)
+  return ret
 }
 
 
-func ChuangJianBiaoMingBiao() {
+func ChuangJianBiaoMingBiao() ml3moxings.CanShu{
 	// 表名表：主键，名称，编码，主键表
 
 	canShu := ml3moxings.CanShu{}
@@ -78,16 +84,16 @@ func ChuangJianBiaoMingBiao() {
 
 	ziDuans := []map[string]interface{}{}
 
-	ziDuan1 := ml0gongjus.ZuZhuang20BIGINT(ml2changliangs.ZhuJian)
+	ziDuan1 := ml0gongjus.ZuZhuangBIGINT(ml2changliangs.ZhuJian,"20")
 	ziDuans = append(ziDuans, ziDuan1)
 
-	ziDuan2 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.MingCheng)
+	ziDuan2 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.MingCheng,"50")
 	ziDuans = append(ziDuans, ziDuan2)
 
-	ziDuan3 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.BianMa)
+	ziDuan3 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.BianMa,"50")
 	ziDuans = append(ziDuans, ziDuan3)
 
-	ziDuan4 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.ZhuJianBiao)
+	ziDuan4 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ZhuJianBiao,"50")
 	ziDuans = append(ziDuans, ziDuan4)
 
 	ziDuansKeyMap := map[string]interface{}{
@@ -97,5 +103,5 @@ func ChuangJianBiaoMingBiao() {
 	canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
 
 	ret := ChuangJianBiao(canShu)
-	log.Println("TestChuangJianBiao,ret---", ret)
+  return ret
 }

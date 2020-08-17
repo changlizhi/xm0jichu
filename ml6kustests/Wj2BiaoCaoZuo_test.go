@@ -35,16 +35,16 @@ func TestChuangJianBiaoMingBiao(t *testing.T) {
 
 	ziDuans := []map[string]interface{}{}
 
-	ziDuan1 := ml0gongjus.ZuZhuang20BIGINT(ml2changliangs.ZhuJian)
+	ziDuan1 := ml0gongjus.ZuZhuangBIGINT(ml2changliangs.ZhuJian,"20")
 	ziDuans = append(ziDuans, ziDuan1)
 
-	ziDuan2 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.MingCheng)
+	ziDuan2 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.MingCheng,"50")
 	ziDuans = append(ziDuans, ziDuan2)
 
-	ziDuan3 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.BianMa)
+	ziDuan3 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.BianMa,"50")
 	ziDuans = append(ziDuans, ziDuan3)
 
-	ziDuan4 := ml0gongjus.ZuZhuang50VARCHAR(ml2changliangs.ZhuJianBiao)
+	ziDuan4 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ZhuJianBiao,"50")
 	ziDuans = append(ziDuans, ziDuan4)
 
 	ziDuansKeyMap := map[string]interface{}{
