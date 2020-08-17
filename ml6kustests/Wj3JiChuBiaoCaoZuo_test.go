@@ -18,4 +18,8 @@ func TestChuangJianZhiDingBiao(t *testing.T){
   ret := ml5kus.ChuangJianZhiDingBiao()
   log.Println("TestChuangJianZhiDingBiao,ret---",ret)
 }
+func TestChuangJianZiDuanXingWeiLiuBiao(t *testing.T){
+  ret := ml5kus.ChuangJianZiDuanXingWeiLiuBiao()
+  log.Println("TestChuangJianZiDuanXingWeiLiuBiao,ret---",ret)
+}
 

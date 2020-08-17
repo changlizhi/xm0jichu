@@ -11,6 +11,11 @@ INT="INT"
 )
 //字段名
 const(
+ZiDuanXingWeiLiu="ZiDuanXingWeiLiu"
+FangFaGeShu="FangFaGeShu"
+ShunXu="ShunXu"
+FangFaMing="FangFaMing"
+MiaoShu="MiaoShu"
 ZiDuanZhuJian="ZiDuanZhuJian"
 KeNengZhi="KeNengZhi"
 KeNengZhiMiaoShu="KeNengZhiMiaoShu"
