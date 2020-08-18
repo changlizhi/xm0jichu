@@ -6,7 +6,12 @@ BiaoMing="BiaoMing"
 ZiDuanMing="ZiDuanMing"
 )
 
-//表名
+//业务表名
+const(
+Ywb1YongHus="Ywb1YongHus"
+)
+
+//基础表名
 const(
 Bm1BiaoMings="Bm1BiaoMings"
 Bm2ZiDuans="Bm2ZiDuans"

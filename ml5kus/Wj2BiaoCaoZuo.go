@@ -7,6 +7,9 @@ import (
 	"xm0jichu/ml2changliangs"
 	"xm0jichu/ml3moxings"
 )
+//后续需要实现一下，在创建表时不做那么多限制
+//ALTER TABLE `bm1biaomings`
+//ADD UNIQUE INDEX `BianMa` (`BianMa`);
 
 func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	//CREATE TABLE `BiaoMing` (
@@ -22,7 +25,7 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
   // 第三个必须是字段列表
 	// 后续强化这个校验
   biaoMing := canShu.ShuJu[ml2changliangs.Sz0][ml2changliangs.Ceng1].(string)                  //把数据第一个拿出来当作表名
-	zhuJian := canShu.ShuJu[ml2changliangs.Sz1][ml2changliangs.Ceng1].(string)                  //逐渐名，也可能是组合主键
+	zhuJian := canShu.ShuJu[ml2changliangs.Sz1][ml2changliangs.Ceng1].(string)                  //主键名，也可能是组合主键
 	ziDuans := canShu.ShuJu[ml2changliangs.Sz2][ml2changliangs.Ceng1].([]map[string]interface{}) //把字段拿出来
 
 	builder := strings.Builder{}
@@ -43,9 +46,9 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	builder.WriteString("PRIMARY KEY ("+zhuJian+"))COLLATE='utf8mb4_general_ci' ENGINE=InnoDB")
 	sqlStr := builder.String()
 
-	canShuRet := HuoQuJiChuLianJieChi()
+	dbCanShuRet := HuoQuJiChuLianJieChi()
 
-	db := ml3moxings.HuoQuCeng1YiGe(canShuRet).(*sql.DB)
+	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
 	result, err := db.Exec(sqlStr)
 
 	log.Println("sqlStr,result,err---", sqlStr, result, err)
