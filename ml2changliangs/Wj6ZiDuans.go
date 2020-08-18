@@ -3,6 +3,7 @@ package ml2changliangs
 //参数
 const(
 BiaoMing="BiaoMing"
+ZiDuanMing="ZiDuanMing"
 )
 
 //表名
