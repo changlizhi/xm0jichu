@@ -25,7 +25,7 @@ var (
 
 func chuShiHuaChi() *sql.DB {
 	suoShiLi.Do(func() {
-		lianJieChi, err = sql.Open("mysql", "root:rootclz@tcp(127.0.0.1:3306)/hfxjichu")
+		lianJieChi, err = sql.Open("mysql", "root:rootclz@tcp(127.0.0.1:3306)/hfx0jichu")
 		if err != nil {
 			log.Println("建立链接失败", err)
 			os.Exit(1)

@@ -40,7 +40,7 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 		builder.WriteString(",")
 	}
 
-	builder.WriteString("PRIMARY KEY ("+zhuJian+"))ENGINE=InnoDB")
+	builder.WriteString("PRIMARY KEY ("+zhuJian+"))COLLATE='utf8mb4_general_ci' ENGINE=InnoDB")
 	sqlStr := builder.String()
 
 	canShuRet := HuoQuLianJieChi()

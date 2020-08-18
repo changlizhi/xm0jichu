@@ -1,7 +1,20 @@
 package ml2changliangs
+
+//参数
+const(
+BiaoMing="BiaoMing"
+)
+
 //表名
 const(
-  
+Bm1BiaoMings="Bm1BiaoMings"
+Bm2ZiDuans="Bm2ZiDuans"
+Bm3YeWus="Bm3YeWus"
+Bm4FangFas="Bm4FangFas"
+Bm5ZiDuanXingWeiLius="Bm5ZiDuanXingWeiLius"
+Bm6ZiDuanZhiDings="Bm6ZiDuanZhiDings"
+Bm7RuCans="Bm7RuCans"
+Bm8ChuCans="Bm8ChuCans"
 )
 //sql常用
 const(
@@ -11,7 +24,9 @@ INT="INT"
 )
 //字段名
 const(
-ZiDuanXingWeiLiu="ZiDuanXingWeiLiu"
+BiXu="BiXu"
+FuBianMa="FuBianMa"
+YeWuZhuJian="YeWuZhuJian"
 FangFaGeShu="FangFaGeShu"
 ShunXu="ShunXu"
 FangFaMing="FangFaMing"
@@ -29,10 +44,7 @@ ZhuJianBiao="ZhuJianBiao"
 ZhiBiao="ZhiBiao"
 ZjBiao="ZjBiao"
 ZdBiao="ZdBiao"
-ZiDuan="ZiDuan"
-ZiDuanZhiDing="ZiDuanZhiDing"
 ZiDuans="ZiDuans"
-BiaoMing="BiaoMing"
 LeiXing="LeiXing"
 ChangDu="ChangDu"
 MoRenZhi="MoRenZhi"
