@@ -281,7 +281,7 @@ func ChuangJianBm6ZiDuanZhiDings() ml3moxings.CanShu{
 }
 
 func ChuangJianBm2ZiDuans() ml3moxings.CanShu{
-  // 字段表：主键，名称，编码，字段值表，正则，是否指定，是否有行为
+  // 字段表：主键，名称，编码，字段值表，正则，是否指定，是否有行为，长度
 	
 	canShu := ml3moxings.CanShu{}
 	canShu.ShuJu = []map[string]interface{}{}
@@ -318,6 +318,9 @@ func ChuangJianBm2ZiDuans() ml3moxings.CanShu{
 
 	ziDuan7 := ml0gongjus.ZuZhuangINT(ml2changliangs.ShiFouYouXingWei,"1")
 	ziDuans = append(ziDuans, ziDuan7)
+
+	ziDuan8 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ChangDu,"5")
+	ziDuans = append(ziDuans, ziDuan8)
 
 	ziDuansKeyMap := map[string]interface{}{
 		ml2changliangs.Ceng1: ziDuans,
