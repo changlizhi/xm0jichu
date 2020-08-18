@@ -21,6 +21,7 @@ var (
 	err        error
 	suoShiLi   sync.Once
 	lianJieChi *sql.DB
+	lianJieChi2 *sql.DB
 )
 
 func chuShiHuaChi() *sql.DB {
@@ -32,10 +33,22 @@ func chuShiHuaChi() *sql.DB {
 		}
 		lianJieChi.SetMaxOpenConns(50)
 		lianJieChi.SetMaxIdleConns(5)
+
+		lianJieChi2, err = sql.Open("mysql", "root:rootclz@tcp(127.0.0.1:3306)/hfx1yonghu")
+		if err != nil {
+			log.Println("建立链接失败", err)
+			os.Exit(1)
+		}
+		lianJieChi.SetMaxOpenConns(50)
+		lianJieChi.SetMaxIdleConns(5)
 	})
 	return lianJieChi
 }
-func HuoQuLianJieChi() ml3moxings.CanShu {
+func HuoQuJiChuLianJieChi() ml3moxings.CanShu {
 	ret := ml3moxings.ZuJianCeng1YiGe(lianJieChi)
+	return ret
+}
+func HuoQuYongHuLianJieChi() ml3moxings.CanShu {
+	ret := ml3moxings.ZuJianCeng1YiGe(lianJieChi2)
 	return ret
 }
