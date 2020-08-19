@@ -7,7 +7,7 @@ import(
 "xm0jichu/ml2changliangs"
 "xm0jichu/ml5kus"
 )
-
+//做这个的时候需要操作中开启事务
 func TestXinZengJueSeZiYuanJieGou(t *testing.T){
   jueSeZiYuanKu := map[string]interface{}{}
   jiChuKu=append(jiChuKu,jueSeZiYuanKu)

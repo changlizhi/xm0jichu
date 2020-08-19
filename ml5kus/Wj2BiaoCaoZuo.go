@@ -8,8 +8,23 @@ import (
 	"xm0jichu/ml3moxings"
 )
 //后续需要实现一下，在创建表时不做那么多限制
-//ALTER TABLE `bm1biaomings`
-//ADD UNIQUE INDEX `BianMa` (`BianMa`);
+
+func SheZhiWeiYiSuoYin(canShu ml3moxings.CanShu)ml3moxings.CanShu{
+  //ALTER TABLE `bm1biaomings` ADD UNIQUE INDEX `BianMa` (`BianMa`);
+  biaoMing := canShu.ShuJu[ml2changliangs.Sz0][ml2changliangs.Ceng1].(string)                  //把数据第一个拿出来当作表名
+  suoYin := canShu.ShuJu[ml2changliangs.Sz1][ml2changliangs.Ceng1].(string)                  //索引名
+  builder := strings.Builder{}
+  
+  builder.WriteString(" ALTER TABLE ")
+  builder.WriteString(biaoMing)
+  builder.WriteString(" ADD UNIQUE INDEX ")
+  builder.WriteString(suoYin)
+  builder.WriteString(" ( ")
+  builder.WriteString(suoYin)
+  builder.WriteString(" ) ")
+  
+  return canShu
+}
 
 func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	//CREATE TABLE `BiaoMing` (
