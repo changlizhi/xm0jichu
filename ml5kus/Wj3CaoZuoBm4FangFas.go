@@ -5,6 +5,22 @@ import (
 	"xm0jichu/ml3moxings"
 	"xm0jichu/ml0gongjus"
 )
+func ChuangJianBm4FangFasSuoYin()ml3moxings.CanShu{
+  canShu := ml3moxings.CanShu{}
+  canShu.ShuJu = []map[string]interface{}{}
+  
+  biaoMing := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.Bm4FangFas,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, biaoMing)
+  
+  suoYin := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.FangFaMing,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, suoYin)
+	ret := SheZhiWeiYiSuoYin(canShu)
+  return ret
+}
 
 func ChuangJianBm4FangFas() ml3moxings.CanShu{
 // 方法表：主键，方法名，名称（带上名称是因为中文更容易理解），描述。//所有方法流里有的方法都能在这里找到。

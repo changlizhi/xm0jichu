@@ -30,6 +30,8 @@ INT="INT"
 )
 //字段名
 const(
+ZhiDingBianMa="ZhiDingBianMa"
+XingWeiBianMa="XingWeiBianMa"
 BiXu="BiXu"
 FuBianMa="FuBianMa"
 YeWuZhuJian="YeWuZhuJian"

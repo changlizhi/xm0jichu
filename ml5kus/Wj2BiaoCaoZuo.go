@@ -23,6 +23,13 @@ func SheZhiWeiYiSuoYin(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   builder.WriteString(suoYin)
   builder.WriteString(" ) ")
   
+  sqlStr:=builder.String()
+	dbCanShuRet := HuoQuJiChuLianJieChi()
+
+	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
+	result, err := db.Exec(sqlStr)
+
+	log.Println("SheZhiWeiYiSuoYin:sqlStr,result,err---", sqlStr, result, err)
   return canShu
 }
 
@@ -66,6 +73,6 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
 	result, err := db.Exec(sqlStr)
 
-	log.Println("sqlStr,result,err---", sqlStr, result, err)
+	log.Println("ChuangJianBiao:sqlStr,result,err---", sqlStr, result, err)
 	return canShu
 }

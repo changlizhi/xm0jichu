@@ -5,6 +5,22 @@ import (
 	"xm0jichu/ml3moxings"
 	"xm0jichu/ml0gongjus"
 )
+func ChuangJianBm5ZiDuanXingWeiLiusSuoYin()ml3moxings.CanShu{
+  canShu := ml3moxings.CanShu{}
+  canShu.ShuJu = []map[string]interface{}{}
+  
+  biaoMing := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.Bm5ZiDuanXingWeiLius,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, biaoMing)
+  
+  suoYin := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.XingWeiBianMa,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, suoYin)
+	ret := SheZhiWeiYiSuoYin(canShu)
+  return ret
+}
 
 func ChuangJianBm5ZiDuanXingWeiLius() ml3moxings.CanShu{
   // 字段行为流表：主键，字段主键，顺序，总个数，名称，方法名，描述。//方法流跟字段是一对多的，查出来之后根据顺序排序即可，即使两个字段的业务方法流是一样的也必须拆成两个值
@@ -44,6 +60,9 @@ func ChuangJianBm5ZiDuanXingWeiLius() ml3moxings.CanShu{
 
   ziDuan7 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.MiaoShu,"50")
   ziDuans = append(ziDuans, ziDuan7)
+
+  ziDuan8 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.XingWeiBianMa,"50")
+  ziDuans = append(ziDuans, ziDuan8)
 
 	ziDuansKeyMap := map[string]interface{}{
 		ml2changliangs.Ceng1: ziDuans,

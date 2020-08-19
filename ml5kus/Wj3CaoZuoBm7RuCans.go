@@ -5,6 +5,22 @@ import (
 	"xm0jichu/ml3moxings"
 	"xm0jichu/ml0gongjus"
 )
+func ChuangJianBm7RuCansSuoYin()ml3moxings.CanShu{
+  canShu := ml3moxings.CanShu{}
+  canShu.ShuJu = []map[string]interface{}{}
+  
+  biaoMing := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.Bm7RuCans,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, biaoMing)
+  
+  suoYin := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.BianMa,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, suoYin)
+	ret := SheZhiWeiYiSuoYin(canShu)
+  return ret
+}
 
 func ChuangJianBm7RuCans() ml3moxings.CanShu{
 //入参字段表：主键，编码，名称，方法名（不用方法主键是为了清晰），类型，是否必须，父编码，描述。
