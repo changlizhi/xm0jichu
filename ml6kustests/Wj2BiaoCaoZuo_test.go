@@ -1,7 +1,6 @@
 package ml6kustests
 
 import (
-	"log"
 	"testing"
 	"xm0jichu/ml2changliangs"
 	"xm0jichu/ml3moxings"
@@ -22,8 +21,7 @@ func TestSheZhiWeiYiSuoYin(t *testing.T){
   	ml2changliangs.Ceng1: ml2changliangs.BianMa,
   }
   canShu.ShuJu = append(canShu.ShuJu, suoYin)
-	ret := SheZhiWeiYiSuoYin(canShu)
-  return ret
+	ml5kus.SheZhiWeiYiSuoYin(canShu)
 }
 
 
@@ -71,6 +69,5 @@ func TestChuangJianBiaoMingBiao(t *testing.T) {
 
 	canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
 
-	ret := ml5kus.ChuangJianBiao(canShu)
-	log.Println("TestChuangJianBiao,ret---", ret)
+  ml5kus.ChuangJianBiao(canShu)
 }
