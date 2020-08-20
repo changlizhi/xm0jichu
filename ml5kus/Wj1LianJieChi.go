@@ -53,7 +53,7 @@ func TianJiaLianJieChi(shuJuKuMing string){
   }
   db := chi[ml2changliangs.TEST]//用test库获取链接
   sqlStr:="create database "+shuJuKuMing
-  result,err := db.Exec(sqlStr)
+  result,err := db.Exec(sqlStr)//这里是为了避免无数据库的情况发生，做一个容错
   log.Println("创建新的数据库:",sqlStr,result, err)
   
   lianJieChi:=chuangJianChi(shuJuKuMing)

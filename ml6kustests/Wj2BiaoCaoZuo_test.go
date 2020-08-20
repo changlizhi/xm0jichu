@@ -12,6 +12,11 @@ func TestSheZhiWeiYiSuoYin(t *testing.T){
   canShu := ml3moxings.CanShu{}
   canShu.ShuJu = []map[string]interface{}{}
   
+  shuJuKuMing := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, shuJuKuMing)
+  
   biaoMing := map[string]interface{}{
   	ml2changliangs.Ceng1: ml2changliangs.Bm1BiaoMings,
   }
@@ -39,6 +44,11 @@ func TestChuangJianBiaoMingBiao(t *testing.T) {
 	canShu := ml3moxings.CanShu{}
 	canShu.ShuJu = []map[string]interface{}{}
 
+  shuJuKuMing := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, shuJuKuMing)
+  
 	biaoMing := map[string]interface{}{
 		ml2changliangs.Ceng1: ml2changliangs.BiaoMing,
 	}
