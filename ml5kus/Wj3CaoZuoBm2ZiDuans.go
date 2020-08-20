@@ -10,6 +10,11 @@ func ChuangJianBm2ZiDuansSuoYin()ml3moxings.CanShu{
   canShu := ml3moxings.CanShu{}
   canShu.ShuJu = []map[string]interface{}{}
   
+  shuJuKuMing := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, shuJuKuMing)
+  
   biaoMing := map[string]interface{}{
   	ml2changliangs.Ceng1: ml2changliangs.Bm2ZiDuans,
   }
@@ -29,6 +34,11 @@ func ChuangJianBm2ZiDuans() ml3moxings.CanShu{
 	canShu := ml3moxings.CanShu{}
 	canShu.ShuJu = []map[string]interface{}{}
 
+	shuJuKuMing := map[string]interface{}{
+		ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
+	}
+	canShu.ShuJu = append(canShu.ShuJu, shuJuKuMing)
+	
 	biaoMing := map[string]interface{}{
 		ml2changliangs.Ceng1: ml2changliangs.Bm2ZiDuans,
 	}
