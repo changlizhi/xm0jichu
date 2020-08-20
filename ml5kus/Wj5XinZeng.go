@@ -31,7 +31,7 @@ func XinZeng(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   builder.WriteString(" ) ")
   
   sqlStr := builder.String()
-  dbCanShuRet := HuoQuJiChuLianJieChi()
+  dbCanShuRet := HuoQuLianJieChi(ml2changliangs.XM0JICHU)
   db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
   result, err := db.Exec(sqlStr,values...)
   

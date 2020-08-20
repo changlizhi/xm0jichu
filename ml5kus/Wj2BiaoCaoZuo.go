@@ -24,7 +24,7 @@ func SheZhiWeiYiSuoYin(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   builder.WriteString(" ) ")
   
   sqlStr:=builder.String()
-	dbCanShuRet := HuoQuJiChuLianJieChi()
+	dbCanShuRet := HuoQuLianJieChi(ml2changliangs.XM0JICHU)
 
 	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
 	result, err := db.Exec(sqlStr)
@@ -68,7 +68,7 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	builder.WriteString("PRIMARY KEY ("+zhuJian+"))COLLATE='utf8mb4_general_ci' ENGINE=InnoDB")
 	sqlStr := builder.String()
 
-	dbCanShuRet := HuoQuJiChuLianJieChi()
+	dbCanShuRet := HuoQuLianJieChi(ml2changliangs.XM0JICHU)
 
 	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
 	result, err := db.Exec(sqlStr)

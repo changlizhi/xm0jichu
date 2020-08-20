@@ -6,49 +6,56 @@ import (
 	"log"
 	"os"
 	"sync"
+  "strings"
 	"xm0jichu/ml3moxings"
+  "xm0jichu/ml2changliangs"
 )
 
 func init() {
-	chuShiHuaChi()
-	if err := lianJieChi.Ping(); err != nil {
-		log.Println("初始化数据库失败", err)
-		os.Exit(1)
-	}
+  testDb:=chuangJianChi(ml2changliangs.TEST)
+  chi[ml2changliangs.TEST]=testDb
+	chuShiHuaChi()//初始化时用test作为初始化链接
 }
 
 var (
-	err        error
 	suoShiLi   sync.Once
-	lianJieChi *sql.DB
-	lianJieChi2 *sql.DB
+	chi = map[string]*sql.DB{}
 )
 
-func chuShiHuaChi() *sql.DB {
-	suoShiLi.Do(func() {
-		lianJieChi, err = sql.Open("mysql", "root:rootclz@tcp(127.0.0.1:3306)/hfx0jichu")
-		if err != nil {
-			log.Println("建立链接失败", err)
-			os.Exit(1)
-		}
-		lianJieChi.SetMaxOpenConns(50)
-		lianJieChi.SetMaxIdleConns(5)
+func chuShiHuaChi(){
+	suoShiLi.Do(func(){//这里需要把已存在的都纳入进来，所以需要新建一个配置文件，这个配置文件用go写成
+    for _,v :=range strings.Split(ml2changliangs.Kus,ml2changliangs.FhDouHao){
+      TianJiaLianJieChi(v)
+    }
+  })
+}
 
-		lianJieChi2, err = sql.Open("mysql", "root:rootclz@tcp(127.0.0.1:3306)/hfx1yonghu")
-		if err != nil {
-			log.Println("建立链接失败", err)
-			os.Exit(1)
-		}
-		lianJieChi.SetMaxOpenConns(50)
-		lianJieChi.SetMaxIdleConns(5)
-	})
-	return lianJieChi
+func chuangJianChi(shuJuKuMing string)*sql.DB{
+  lianJieChi, err := sql.Open("mysql", "root:rootclz@tcp(127.0.0.1:3306)/"+shuJuKuMing)//进入mysql数据库，然后
+  if err != nil {
+    log.Println("建立链接失败", err)
+    os.Exit(1)
+  }
+  lianJieChi.SetMaxOpenConns(50)
+  lianJieChi.SetMaxIdleConns(5)
+  chi[shuJuKuMing]=lianJieChi
+  log.Println("chuangJianChi:lianJieChi---",lianJieChi)
+  return lianJieChi
 }
-func HuoQuJiChuLianJieChi() ml3moxings.CanShu {
-	ret := ml3moxings.ZuJianCeng1YiGe(lianJieChi)
+
+func HuoQuLianJieChi(shuJuKuMing string) ml3moxings.CanShu {
+	ret := ml3moxings.ZuJianCeng1YiGe(chi[shuJuKuMing])
 	return ret
 }
-func HuoQuYongHuLianJieChi() ml3moxings.CanShu {
-	ret := ml3moxings.ZuJianCeng1YiGe(lianJieChi2)
-	return ret
+func TianJiaLianJieChi(shuJuKuMing string){
+  if chi[shuJuKuMing] != nil{
+    return
+  }
+  db := chi[ml2changliangs.TEST]//用test库获取链接
+  sqlStr:="create database "+shuJuKuMing
+  result,err := db.Exec(sqlStr)
+  log.Println("创建新的数据库:",sqlStr,result, err)
+  
+  lianJieChi:=chuangJianChi(shuJuKuMing)
+  chi[shuJuKuMing]=lianJieChi  
 }

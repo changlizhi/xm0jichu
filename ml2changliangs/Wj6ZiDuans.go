@@ -1,5 +1,15 @@
 package ml2changliangs
 
+//数据库
+const(
+TEST="TEST"
+MYSQL="MYSQL"
+XM0JICHU="XM0JICHU"
+XM1YONGHU="XM1YONGHU"
+XM2HUODONG="XM2HUODONG"
+XM3YANLUN="XM3YANLUN"
+)
+
 //参数
 const(
 BiaoMing="BiaoMing"
