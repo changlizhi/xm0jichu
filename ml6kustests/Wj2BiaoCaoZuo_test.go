@@ -9,6 +9,24 @@ import (
 	"xm0jichu/ml0gongjus"
 )
 
+func TestSheZhiWeiYiSuoYin(t *testing.T){
+  canShu := ml3moxings.CanShu{}
+  canShu.ShuJu = []map[string]interface{}{}
+  
+  biaoMing := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.Bm1BiaoMings,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, biaoMing)
+  
+  suoYin := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.BianMa,
+  }
+  canShu.ShuJu = append(canShu.ShuJu, suoYin)
+	ret := SheZhiWeiYiSuoYin(canShu)
+  return ret
+}
+
+
 // 字段表：主键，名称，编码，是否指定，字段值表，是否有行为，校验
 // 字段指定：主键，字段表主键，可能值
 // 字段行为：主键，字段表主键，编码，名称，方法流，描述。//这是针对一个字段进行业务流向进行梳理
