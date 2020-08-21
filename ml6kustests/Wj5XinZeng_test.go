@@ -14,7 +14,7 @@ func TestXinZeng(t *testing.T){
   yongHuKu[ml2changliangs.ZhuJian]=ml0gongjus.HuoQuId()
   yongHuKu[ml2changliangs.MingCheng]="用户"
   yongHuKu[ml2changliangs.BianMa]=ml2changliangs.Ywb1YongHus
-  yongHuKu[ml2changliangs.ZhuJianBiao]=ml2changliangs.ZjBiao+"1"
+  yongHuKu[ml2changliangs.ZhuJianBiao]=ml2changliangs.ZjBiao+ml2changliangs.Zf1+ml2changliangs.XiaoXies
   yongHuKu[ml2changliangs.ShuJuKu]=ml2changliangs.XM1YONGHU
   
   canShu := ml3moxings.CanShu{}
