@@ -7,6 +7,33 @@ import(
   "strings"
   "database/sql"
 )
+
+func XinZengXm0JiChuShuJu(canShu ml3moxings.CanShu)ml3moxings.CanShu{
+  canShuUse := ml3moxings.CanShu{}
+  canShuUse.ShuJu = []map[string]interface{}{}
+  
+  shuJuKuMing := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
+  }
+  canShuUse.ShuJu = append(canShuUse.ShuJu, shuJuKuMing)
+  
+  biaoMing := map[string]interface{}{
+  	ml2changliangs.Ceng1: ml2changliangs.Bm1BiaoMings,
+  }
+  canShuUse.ShuJu = append(canShuUse.ShuJu, biaoMing)
+  
+  ziDuansKeyMap := map[string]interface{}{
+  	ml2changliangs.Ceng1: canShu.ShuJu,
+  }
+  
+  canShuUse.ShuJu = append(canShuUse.ShuJu, ziDuansKeyMap)
+  //这里可以进行一波并发插入看下能耗时多久
+
+  ChuangJianBiaoHeSuoYin()//先创建表和索引
+  XinZeng(canShuUse)
+  return canShuUse
+}
+
 func XinZeng(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   //insert into shuJuKuMing.table (columns) values(values)
   shuJuKuMing := canShu.ShuJu[ml2changliangs.Sz0][ml2changliangs.Ceng1].(string)
