@@ -40,6 +40,7 @@ INT="INT"
 )
 //字段名
 const(
+ShuJuKu="ShuJuKu"
 ZhiDingBianMa="ZhiDingBianMa"
 XingWeiBianMa="XingWeiBianMa"
 BiXu="BiXu"

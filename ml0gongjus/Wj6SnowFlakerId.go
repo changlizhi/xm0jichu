@@ -25,12 +25,12 @@ const (
 
 var Idworker, _ = NewIdWorker()
 
-func HuoquId() int64 {
+func HuoQuId() int64 {
 	nextid, _ := Idworker.NextId()
 	return nextid
 }
 func HuoQuIdZiFu() string {
-	nextidyonghu := HuoquId()
+	nextidyonghu := HuoQuId()
 	idZiFuyonghu := strconv.FormatInt(nextidyonghu, 10)
 	return idZiFuyonghu
 }

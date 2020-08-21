@@ -63,6 +63,9 @@ func ChuangJianBm1BiaoMings() ml3moxings.CanShu{
 	ziDuan4 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ZhuJianBiao,"50")
 	ziDuans = append(ziDuans, ziDuan4)
 
+	ziDuan5 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ShuJuKu,"50")
+	ziDuans = append(ziDuans, ziDuan5)
+
 	ziDuansKeyMap := map[string]interface{}{
 		ml2changliangs.Ceng1: ziDuans,
 	}

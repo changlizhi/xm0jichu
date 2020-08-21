@@ -5,6 +5,7 @@ import(
 "log"
 "xm0jichu/ml3moxings"
 "xm0jichu/ml2changliangs"
+"xm0jichu/ml0gongjus"
 "xm0jichu/ml5kus"
 )
 //测试新增基础表数据时比较特殊，需要明确的知道
@@ -15,12 +16,45 @@ import(
 //这一层控制将是绝对的关键位置，所有后续业务都依赖这一步的创建绝对成功和没有纰漏。
 
 //做这个的时候需要操作中开启事务
+
+//流程：首先拿到数据库连接池
+//1.新增表名数据
+//2.根据表名编码获取主键新增字段数据
+//3.查询表名表新增表名主键表
+//4.查询字段表新增字段值表
+//5.会存在表没有建好但开始插入数据的情况吗？如果新建了一个业务，必然会新建相应的表。如果是基础库没有添加表呢？一般不应该出现，如果出现迁移情况也应该把这些测试方法都执行一次之后让表存在。
+
+func zuZhuangBiaoMingShuJu(shuJuKu,bianMa,mingCheng,ZhuJianBiao string)[]map[string]interface{}{
+  canShusArr := []map[string]interface{}{}
+
+  canShus := map[string]interface{}{}
+  canShus[ml2changliangs.ShuJuKu]=shuJuKu
+  canShus[ml2changliangs.ZhuJian]=ml0gongjus.HuoQuId()
+  canShus[ml2changliangs.BianMa]=bianMa
+  canShus[ml2changliangs.MingCheng]=mingCheng
+  canShus[ml2changliangs.ZhuJianBiao]=ZhuJianBiao
+  
+  canShusArr=append(canShusArr,canShus)
+  return canShusArr
+}
+
+func TestXinZengJiChuBiao(t *testing.T){
+  yongHuBiao := zuZhuangBiaoMingShuJu(
+    ml2changliangs.XM0JICHU,
+    ml2changliangs.Ywb1YongHus,
+    "用户",
+    ml2changliangs.ZjBiao+"1",
+  )
+  
+}
+
 func TestXinZengJueSeZiYuanJieGou(t *testing.T){
   jueSeZiYuanKu := map[string]interface{}{}
   jiChuKu=append(jiChuKu,jueSeZiYuanKu)
   jueSeZiYuanKu[ml2changliangs.MingCheng]="角色资源"
   jueSeZiYuanKu[ml2changliangs.BianMa]="JueSeZiYuan"
   jueSeZiYuanKu[ml2changliangs.ZhuJianBiao]=ml2changliangs.ZjBiao+"5"
+  jueSeZiYuanKu[ml2changliangs.ShuJuKu]=ml2changliangs.ZjBiao+"5"
   
   jszyzd := []map[string]string{}
   

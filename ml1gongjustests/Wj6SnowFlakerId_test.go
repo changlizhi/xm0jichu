@@ -5,8 +5,8 @@ import(
   "xm0jichu/ml0gongjus"
   "time"
 )
-func TestHuoquId(t *testing.T){
-  ret := ml0gongjus.HuoquId()
+func TestHuoQuId(t *testing.T){
+  ret := ml0gongjus.HuoQuId()
   log.Println(ret)
 }
 func TestHuoQuIdZiFu(t *testing.T){

@@ -56,7 +56,11 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 
 	builder := strings.Builder{}
 
-	builder.WriteString("CREATE TABLE " + biaoMing + " (")
+	builder.WriteString("CREATE TABLE ")
+   builder.WriteString(shuJuKuMing)
+   builder.WriteString(ml2changliangs.FhDianHao)
+   builder.WriteString(biaoMing) 
+    builder.WriteString(" (")
 	for _, v := range ziDuans {
 		//`MingCheng` VARCHAR(50) NOT NULL DEFAULT 'hfx',
 		builder.WriteString(v[ml2changliangs.ZiDuanMing].(string))

@@ -11,10 +11,11 @@ import(
 
 func TestXinZeng(t *testing.T){
   yongHuKu := map[string]interface{}{}
-  yongHuKu[ml2changliangs.ZhuJian]=ml0gongjus.HuoquId()
+  yongHuKu[ml2changliangs.ZhuJian]=ml0gongjus.HuoQuId()
   yongHuKu[ml2changliangs.MingCheng]="用户"
   yongHuKu[ml2changliangs.BianMa]=ml2changliangs.Ywb1YongHus
   yongHuKu[ml2changliangs.ZhuJianBiao]=ml2changliangs.ZjBiao+"1"
+  yongHuKu[ml2changliangs.ShuJuKu]=ml2changliangs.XM1YONGHU
   
   canShu := ml3moxings.CanShu{}
   canShu.ShuJu = []map[string]interface{}{}
@@ -38,7 +39,8 @@ func TestXinZeng(t *testing.T){
   
   canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
   //这里可以进行一波并发插入看下能耗时多久
-  // ret := 
+
+  ml5kus.ChuangJianBiaoHeSuoYin()//先创建表和索引
   ml5kus.XinZeng(canShu)
 
 }
