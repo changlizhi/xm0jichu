@@ -11,9 +11,10 @@ import (
 
 func SheZhiWeiYiSuoYin(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   //ALTER TABLE xm0jichu.bm1biaomings ADD UNIQUE INDEX BianMa (BianMa);
-  shuJuKuMing := canShu.ShuJu[ml2changliangs.Sz0][ml2changliangs.Ceng1].(string) //把数据第一个拿出来当作表名
-  biaoMing := canShu.ShuJu[ml2changliangs.Sz1][ml2changliangs.Ceng1].(string) //把数据第一个拿出来当作表名
-  suoYin := canShu.ShuJu[ml2changliangs.Sz2][ml2changliangs.Ceng1].(string)  //索引名
+  canShuYiGe := canShu.ShuJu[ml2changliangs.Sz0]
+  shuJuKuMing := canShuYiGe[ml2changliangs.ShuJuKu].(string)
+  biaoMing := canShuYiGe[ml2changliangs.BiaoMing].(string)
+	suoYin := canShuYiGe[ml2changliangs.SuoYin].(string)
   builder := strings.Builder{}
   
   builder.WriteString(" ALTER TABLE ")
@@ -49,18 +50,21 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
   // 第二个必须是主键名指定
   // 第三个必须是字段列表
 	// 后续强化这个校验
-  shuJuKuMing := canShu.ShuJu[ml2changliangs.Sz0][ml2changliangs.Ceng1].(string)
-  biaoMing := canShu.ShuJu[ml2changliangs.Sz1][ml2changliangs.Ceng1].(string)
-	zhuJian := canShu.ShuJu[ml2changliangs.Sz2][ml2changliangs.Ceng1].(string)
-	ziDuans := canShu.ShuJu[ml2changliangs.Sz3][ml2changliangs.Ceng1].([]map[string]interface{}) //把字段拿出来
+
+  canShuYiGe := canShu.ShuJu[ml2changliangs.Sz0]
+  shuJuKuMing := canShuYiGe[ml2changliangs.ShuJuKu].(string)
+  biaoMing := canShuYiGe[ml2changliangs.BiaoMing].(string)
+	zhuJian := canShuYiGe[ml2changliangs.ZhuJian].(string)
+	suoYin := canShuYiGe[ml2changliangs.SuoYin].(string)
+	ziDuans := canShuYiGe[ml2changliangs.ZiDuans].([]map[string]interface{}) //把字段拿出来
 
 	builder := strings.Builder{}
 
 	builder.WriteString("CREATE TABLE ")
-   builder.WriteString(shuJuKuMing)
-   builder.WriteString(ml2changliangs.FhDianHao)
-   builder.WriteString(biaoMing) 
-    builder.WriteString(" (")
+  builder.WriteString(shuJuKuMing)
+  builder.WriteString(ml2changliangs.FhDianHao)
+  builder.WriteString(biaoMing) 
+  builder.WriteString(" (")
 	for _, v := range ziDuans {
 		//`MingCheng` VARCHAR(50) NOT NULL DEFAULT 'hfx',
 		builder.WriteString(v[ml2changliangs.ZiDuanMing].(string))
@@ -73,8 +77,19 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 		builder.WriteString(",")
 	}
 
-	builder.WriteString("PRIMARY KEY ("+zhuJian+"))COLLATE='utf8mb4_general_ci' ENGINE=InnoDB")
-	sqlStr := builder.String()
+	builder.WriteString("PRIMARY KEY (")
+  builder.WriteString(zhuJian)
+	builder.WriteString(")")
+  if suoYin != ""{
+    builder.WriteString(",UNIQUE INDEX ")
+    builder.WriteString(suoYin)
+    builder.WriteString(" (")
+    builder.WriteString(suoYin)
+    builder.WriteString(")")
+  }
+  builder.WriteString(")COLLATE='utf8mb4_general_ci' ENGINE=InnoDB")
+	
+  sqlStr := builder.String()
 
 	dbCanShuRet := HuoQuLianJieChi(shuJuKuMing)
 

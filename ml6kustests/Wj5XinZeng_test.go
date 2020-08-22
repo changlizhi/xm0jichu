@@ -39,8 +39,6 @@ func TestXinZeng(t *testing.T){
   
   canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
   //这里可以进行一波并发插入看下能耗时多久
-
-  ml5kus.ChuangJianBiaoHeSuoYin()//先创建表和索引
   ml5kus.XinZeng(canShu)
 
 }

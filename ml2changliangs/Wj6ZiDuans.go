@@ -8,6 +8,7 @@ XM0JICHU="XM0JICHU"
 XM1YONGHU="XM1YONGHU"
 XM2HUODONG="XM2HUODONG"
 XM3YANLUN="XM3YANLUN"
+SuoYin="SuoYin"
 )
 
 //参数
@@ -19,6 +20,10 @@ ZiDuanMing="ZiDuanMing"
 //业务表名
 const(
 Ywb1YongHus="Ywb1YongHus"
+Ywb2JueSes="Ywb2JueSes"
+Ywb3ZiYuans="Ywb3ZiYuans"
+Ywb4YongHuJueSes="Ywb4YongHuJueSes"
+Ywb5JueSeZiYuans="Ywb5JueSeZiYuans"
 )
 
 //基础表名

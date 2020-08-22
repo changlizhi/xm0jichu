@@ -28,8 +28,14 @@ func XinZengXm0JiChuShuJu(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   
   canShuUse.ShuJu = append(canShuUse.ShuJu, ziDuansKeyMap)
   //这里可以进行一波并发插入看下能耗时多久
-
-  ChuangJianBiaoHeSuoYin()//先创建表和索引
+  
+  //这里判断如果数据库不存在就添加一个再新增
+  // dbCanShuRet := HuoQuLianJieChi(shuJuKuMing)
+  // db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
+  // if db == nil{
+  //   TianJiaLianJieChi(shuJuKuMing)
+  // }
+  
   XinZeng(canShuUse)
   return canShuUse
 }

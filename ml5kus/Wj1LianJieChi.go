@@ -59,3 +59,4 @@ func TianJiaLianJieChi(shuJuKuMing string){
   log.Println("创建新的数据库:",sqlStr,result, err,chi)
   chi[shuJuKuMing]=lianJieChi  
 }
+

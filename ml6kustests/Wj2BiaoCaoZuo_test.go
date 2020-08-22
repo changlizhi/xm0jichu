@@ -8,26 +8,6 @@ import (
 	"xm0jichu/ml0gongjus"
 )
 
-func TestSheZhiWeiYiSuoYin(t *testing.T){
-  canShu := ml3moxings.CanShu{}
-  canShu.ShuJu = []map[string]interface{}{}
-  
-  shuJuKuMing := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
-  }
-  canShu.ShuJu = append(canShu.ShuJu, shuJuKuMing)
-  
-  biaoMing := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.Bm1BiaoMings,
-  }
-  canShu.ShuJu = append(canShu.ShuJu, biaoMing)
-  
-  suoYin := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.BianMa,
-  }
-  canShu.ShuJu = append(canShu.ShuJu, suoYin)
-	ml5kus.SheZhiWeiYiSuoYin(canShu)
-}
 
 
 // 字段表：主键，名称，编码，是否指定，字段值表，是否有行为，校验
@@ -44,40 +24,39 @@ func TestChuangJianBiaoMingBiao(t *testing.T) {
 	canShu := ml3moxings.CanShu{}
 	canShu.ShuJu = []map[string]interface{}{}
 
-  shuJuKuMing := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
+  shuJu0 := map[string]interface{}{
   }
-  canShu.ShuJu = append(canShu.ShuJu, shuJuKuMing)
-  
-	biaoMing := map[string]interface{}{
-		ml2changliangs.Ceng1: ml2changliangs.BiaoMing,
-	}
-	canShu.ShuJu = append(canShu.ShuJu, biaoMing)
-
-	zhuJian := map[string]interface{}{
-		ml2changliangs.Ceng1: ml2changliangs.ZhuJian,
-	}
-	canShu.ShuJu = append(canShu.ShuJu, zhuJian)
+  shuJu0[ml2changliangs.ShuJuKu]=ml2changliangs.XM0JICHU
+  shuJu0[ml2changliangs.BiaoMing]=ml2changliangs.Bm1BiaoMings
+  shuJu0[ml2changliangs.SuoYin]=ml2changliangs.BianMa
+  shuJu0[ml2changliangs.ZhuJian]=ml2changliangs.ZhuJian
 
 	ziDuans := []map[string]interface{}{}
 
 	ziDuan1 := ml0gongjus.ZuZhuangBIGINT(ml2changliangs.ZhuJian,"20")
-	ziDuans = append(ziDuans, ziDuan1)
-
-	ziDuan2 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.MingCheng,"50")
-	ziDuans = append(ziDuans, ziDuan2)
-
-	ziDuan3 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.BianMa,"50")
-	ziDuans = append(ziDuans, ziDuan3)
-
+	ziDuan2 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.BianMa,"50")
+	ziDuan3 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.MingCheng,"50")
 	ziDuan4 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ZhuJianBiao,"50")
+	
+  ziDuans = append(ziDuans, ziDuan1)
+	ziDuans = append(ziDuans, ziDuan2)
+	ziDuans = append(ziDuans, ziDuan3)
 	ziDuans = append(ziDuans, ziDuan4)
+  shuJu0[ml2changliangs.ZiDuans]=ziDuans
 
-	ziDuansKeyMap := map[string]interface{}{
-		ml2changliangs.Ceng1: ziDuans,
-	}
-
-	canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
-
+  canShu.ShuJu = append(canShu.ShuJu, shuJu0)
   ml5kus.ChuangJianBiao(canShu)
+}
+func TestSheZhiWeiYiSuoYin(t *testing.T){
+  canShu := ml3moxings.CanShu{}
+  canShu.ShuJu = []map[string]interface{}{}
+  
+  shuJu0 := map[string]interface{}{
+  }
+  shuJu0[ml2changliangs.ShuJuKu]=ml2changliangs.XM0JICHU
+  shuJu0[ml2changliangs.BiaoMing]=ml2changliangs.Bm1BiaoMings
+  shuJu0[ml2changliangs.SuoYin]=ml2changliangs.BianMa
+  canShu.ShuJu = append(canShu.ShuJu, shuJu0)
+  
+	ml5kus.SheZhiWeiYiSuoYin(canShu)
 }
