@@ -50,6 +50,7 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
   // 第二个必须是主键名指定
   // 第三个必须是字段列表
 	// 后续强化这个校验
+  // 要重点命名清楚每个中间变量的意义，ShuJuKu是需要访问的数据库，BiaoMing是需要访问的数据库下的表，字段中的ShuJuKu是值
 
   canShuYiGe := canShu.ShuJu[ml2changliangs.Sz0]
   shuJuKuMing := canShuYiGe[ml2changliangs.ShuJuKu].(string)

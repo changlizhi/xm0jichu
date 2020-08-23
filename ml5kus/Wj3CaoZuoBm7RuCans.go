@@ -5,49 +5,18 @@ import (
 	"xm0jichu/ml3moxings"
 	"xm0jichu/ml0gongjus"
 )
-func ChuangJianBm7RuCansSuoYin()ml3moxings.CanShu{
+func ChuangJianBm7RuCans() ml3moxings.CanShu{
+//入参字段表：主键，编码，名称，方法名（不用方法主键是为了清晰），类型，是否必须，父编码，描述。
   canShu := ml3moxings.CanShu{}
   canShu.ShuJu = []map[string]interface{}{}
   
-  shuJuKuMing := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
+  shuJu0 := map[string]interface{}{
   }
-  canShu.ShuJu = append(canShu.ShuJu, shuJuKuMing)
+  shuJu0[ml2changliangs.ShuJuKu]=ml2changliangs.XM0JICHU
+  shuJu0[ml2changliangs.BiaoMing]=ml2changliangs.Bm7RuCans
+  shuJu0[ml2changliangs.SuoYin]=ml2changliangs.BianMa
+  shuJu0[ml2changliangs.ZhuJian]=ml2changliangs.ZhuJian
   
-  biaoMing := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.Bm7RuCans,
-  }
-  canShu.ShuJu = append(canShu.ShuJu, biaoMing)
-  
-  suoYin := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.BianMa,
-  }
-  canShu.ShuJu = append(canShu.ShuJu, suoYin)
-	ret := SheZhiWeiYiSuoYin(canShu)
-  return ret
-}
-
-func ChuangJianBm7RuCans() ml3moxings.CanShu{
-//入参字段表：主键，编码，名称，方法名（不用方法主键是为了清晰），类型，是否必须，父编码，描述。
-  
-	canShu := ml3moxings.CanShu{}
-	canShu.ShuJu = []map[string]interface{}{}
-
-	shuJuKuMing := map[string]interface{}{
-		ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
-	}
-	canShu.ShuJu = append(canShu.ShuJu, shuJuKuMing)
-	
-	biaoMing := map[string]interface{}{
-		ml2changliangs.Ceng1: ml2changliangs.Bm7RuCans,
-	}
-	canShu.ShuJu = append(canShu.ShuJu, biaoMing)
-
-	zhuJian := map[string]interface{}{
-		ml2changliangs.Ceng1: ml2changliangs.ZhuJian,
-	}
-	canShu.ShuJu = append(canShu.ShuJu, zhuJian)
-
 	ziDuans := []map[string]interface{}{}
 
 	ziDuan1 := ml0gongjus.ZuZhuangBIGINT(ml2changliangs.ZhuJian,"20")
@@ -74,12 +43,9 @@ func ChuangJianBm7RuCans() ml3moxings.CanShu{
   ziDuan8 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.MiaoShu,"50")
   ziDuans = append(ziDuans, ziDuan8)
 
-	ziDuansKeyMap := map[string]interface{}{
-		ml2changliangs.Ceng1: ziDuans,
-	}
-
-	canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
-
-	ret := ChuangJianBiao(canShu)
+  shuJu0[ml2changliangs.ZiDuans]=ziDuans
+  
+  canShu.ShuJu = append(canShu.ShuJu, shuJu0)
+  ret := ChuangJianBiao(canShu)
   return ret
 }

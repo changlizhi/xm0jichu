@@ -42,14 +42,15 @@ func XinZengXm0JiChuShuJu(canShu ml3moxings.CanShu)ml3moxings.CanShu{
 
 func XinZeng(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   //insert into shuJuKuMing.table (columns) values(values)
-  shuJuKuMing := canShu.ShuJu[ml2changliangs.Sz0][ml2changliangs.Ceng1].(string)
-  biaoMing := canShu.ShuJu[ml2changliangs.Sz1][ml2changliangs.Ceng1].(string)
-  ziDuans := canShu.ShuJu[ml2changliangs.Sz2][ml2changliangs.Ceng1].([]map[string]interface{})
+  canShuYiGe := canShu.ShuJu[ml2changliangs.Sz0]
+  shuJuKuMing := canShuYiGe[ml2changliangs.ShuJuKu].(string)
+  biaoMing := canShuYiGe[ml2changliangs.BiaoMing].(string)
+  ziDuans := canShuYiGe[ml2changliangs.ZiDuans].(map[string]interface{}) //把字段拿出来
   
   keys:=[]string{}
   wenHaos:=[]string{}
   values:=[]interface{}{}
-  for k, v := range ziDuans[ml2changliangs.Sz0] {
+  for k, v := range ziDuans {
     keys = append(keys,k)
     values=append(values,v)
     wenHaos=append(wenHaos,ml2changliangs.FhWenHao)

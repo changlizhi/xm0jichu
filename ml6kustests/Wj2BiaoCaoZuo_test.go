@@ -37,11 +37,13 @@ func TestChuangJianBiaoMingBiao(t *testing.T) {
 	ziDuan2 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.BianMa,"50")
 	ziDuan3 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.MingCheng,"50")
 	ziDuan4 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ZhuJianBiao,"50")
+  ziDuan5 := ml0gongjus.ZuZhuangVARCHAR(ml2changliangs.ShuJuKu,"50")
 	
   ziDuans = append(ziDuans, ziDuan1)
 	ziDuans = append(ziDuans, ziDuan2)
 	ziDuans = append(ziDuans, ziDuan3)
 	ziDuans = append(ziDuans, ziDuan4)
+	ziDuans = append(ziDuans, ziDuan5)
   shuJu0[ml2changliangs.ZiDuans]=ziDuans
 
   canShu.ShuJu = append(canShu.ShuJu, shuJu0)

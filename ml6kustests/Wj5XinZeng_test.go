@@ -10,35 +10,25 @@ import(
 
 
 func TestXinZeng(t *testing.T){
-  yongHuKu := map[string]interface{}{}
-  yongHuKu[ml2changliangs.ZhuJian]=ml0gongjus.HuoQuId()
-  yongHuKu[ml2changliangs.MingCheng]="用户"
-  yongHuKu[ml2changliangs.BianMa]=ml2changliangs.Ywb1YongHus
-  yongHuKu[ml2changliangs.ZhuJianBiao]=ml2changliangs.ZjBiao+ml2changliangs.Zf1+ml2changliangs.XiaoXies
-  yongHuKu[ml2changliangs.ShuJuKu]=ml2changliangs.XM1YONGHU
-  
   canShu := ml3moxings.CanShu{}
   canShu.ShuJu = []map[string]interface{}{}
   
-  shuJuKuMing := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
+  shuJu0 := map[string]interface{}{
   }
-  canShu.ShuJu = append(canShu.ShuJu, shuJuKuMing)
+  shuJu0[ml2changliangs.ShuJuKu]=ml2changliangs.XM0JICHU
+  shuJu0[ml2changliangs.ZhuJian]=ml2changliangs.ZhuJian
+  shuJu0[ml2changliangs.BiaoMing]=ml2changliangs.Bm1BiaoMings
   
-  biaoMing := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.Bm1BiaoMings,
-  }
-  canShu.ShuJu = append(canShu.ShuJu, biaoMing)
+  ziDuans := map[string]interface{}{}
+  ziDuans[ml2changliangs.ShuJuKu]=ml2changliangs.XM1YONGHU
+  ziDuans[ml2changliangs.ZhuJian]=ml0gongjus.HuoQuId()
+  ziDuans[ml2changliangs.BianMa]=ml2changliangs.Ywb1YongHus
+  ziDuans[ml2changliangs.MingCheng]="用户"
+  ziDuans[ml2changliangs.ZhuJianBiao]=ml2changliangs.ZjBiao+ml2changliangs.Zf1+ml2changliangs.XiaoXies
   
-  ziDuans := []map[string]interface{}{}
+  shuJu0[ml2changliangs.ZiDuans]=ziDuans
   
-  ziDuans=append(ziDuans,yongHuKu)
-  ziDuansKeyMap := map[string]interface{}{
-  	ml2changliangs.Ceng1: ziDuans,
-  }
-  
-  canShu.ShuJu = append(canShu.ShuJu, ziDuansKeyMap)
+  canShu.ShuJu = append(canShu.ShuJu, shuJu0)
   //这里可以进行一波并发插入看下能耗时多久
   ml5kus.XinZeng(canShu)
-
 }
