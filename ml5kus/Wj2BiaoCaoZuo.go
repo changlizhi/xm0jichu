@@ -7,6 +7,10 @@ import (
 	"xm0jichu/ml2changliangs"
 	"xm0jichu/ml3moxings"
 )
+
+//为了创建表时不报错，所以提供一个删除表和数据库的方法，测试创建表或者创建数据库的时候
+
+
 //后续需要实现一下，在创建表时不做那么多限制
 
 func SheZhiWeiYiSuoYin(canShu ml3moxings.CanShu)ml3moxings.CanShu{
@@ -38,7 +42,7 @@ func SheZhiWeiYiSuoYin(canShu ml3moxings.CanShu)ml3moxings.CanShu{
 }
 
 func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
-	//CREATE TABLE `BiaoMing` (
+	//CREATE TABLE shuJuKuMing.BiaoMing (
 	// `ZhuJian` BIGINT(20) NOT NULL,
 	// `MingCheng` VARCHAR(50) NOT NULL DEFAULT 'hfx',
 	// `BianMa` VARCHAR(50) NOT NULL DEFAULT 'hfx',
@@ -96,7 +100,11 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 
 	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
 	result, err := db.Exec(sqlStr)
-
+  if err!=nil &&(strings.Contains(err.Error(),"1049") ||strings.Contains(err.Error(),"1146")){
+    log.Println("数据库不存在",err)
+    TianJiaLianJieChi(shuJuKuMing)
+    ChuangJianBiao(canShu)
+  }
 	log.Println("ChuangJianBiao:sqlStr,result,err---", sqlStr, result, err)
 	return canShu
 }

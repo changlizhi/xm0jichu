@@ -47,16 +47,27 @@ func HuoQuLianJieChi(shuJuKuMing string) ml3moxings.CanShu {
 	ret := ml3moxings.ZuJianCeng1YiGe(chi[shuJuKuMing])
 	return ret
 }
+
+func ChuangJianKu(shuJuKuMing string){
+  db := chi[ml2changliangs.TEST]//用test库获取链接
+  sqlStr:="create database "+shuJuKuMing
+  result,err := db.Exec(sqlStr)//这里是为了避免无数据库的情况发生，做一个容错
+  log.Println("创建新的数据库:",sqlStr,result, err,chi)
+  
+}
+func ShanChuKu(shuJuKuMing string){
+  db := chi[ml2changliangs.TEST]//用test库获取链接
+  sqlStr:="drop database "+shuJuKuMing
+  result,err := db.Exec(sqlStr)//这里是为了避免无数据库的情况发生，做一个容错
+  log.Println("删除数据库:",sqlStr,result, err,chi)
+}
+
 func TianJiaLianJieChi(shuJuKuMing string){
   if chi[shuJuKuMing] != nil{
     return
   }
-  db := chi[ml2changliangs.TEST]//用test库获取链接
-  sqlStr:="create database "+shuJuKuMing
-  result,err := db.Exec(sqlStr)//这里是为了避免无数据库的情况发生，做一个容错
-  
+  ChuangJianKu(shuJuKuMing)
   lianJieChi:=chuangJianChi(shuJuKuMing)
-  log.Println("创建新的数据库:",sqlStr,result, err,chi)
   chi[shuJuKuMing]=lianJieChi  
 }
 
