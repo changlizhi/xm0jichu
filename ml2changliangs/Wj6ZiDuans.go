@@ -10,7 +10,6 @@ XM2HUODONG="XM2HUODONG"
 XM3YANLUN="XM3YANLUN"
 SuoYin="SuoYin"
 )
-
 //参数
 const(
 BiaoMing="BiaoMing"

@@ -16,15 +16,15 @@ import (
 func SheZhiWeiYiSuoYin(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   //ALTER TABLE xm0jichu.bm1biaomings ADD UNIQUE INDEX BianMa (BianMa);
   canShuYiGe := canShu.ShuJu[ml2changliangs.Sz0]
-  shuJuKuMing := canShuYiGe[ml2changliangs.ShuJuKu].(string)
-  biaoMing := canShuYiGe[ml2changliangs.BiaoMing].(string)
+  caoZuoKu := canShuYiGe[ml2changliangs.CaoZuoKu].(string)
+  caoZuoBiao := canShuYiGe[ml2changliangs.CaoZuoBiao].(string)
 	suoYin := canShuYiGe[ml2changliangs.SuoYin].(string)
   builder := strings.Builder{}
   
   builder.WriteString(" ALTER TABLE ")
-  builder.WriteString(shuJuKuMing)
+  builder.WriteString(caoZuoKu)
   builder.WriteString(ml2changliangs.FhDianHao)
-  builder.WriteString(biaoMing)
+  builder.WriteString(caoZuoBiao)
   builder.WriteString(" ADD UNIQUE INDEX ")
   builder.WriteString(suoYin)
   builder.WriteString(" ( ")
@@ -32,7 +32,7 @@ func SheZhiWeiYiSuoYin(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   builder.WriteString(" ) ")
   
   sqlStr:=builder.String()
-	dbCanShuRet := HuoQuLianJieChi(shuJuKuMing)
+	dbCanShuRet := HuoQuLianJieChi(caoZuoKu)
 
 	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
 	result, err := db.Exec(sqlStr)
@@ -42,7 +42,7 @@ func SheZhiWeiYiSuoYin(canShu ml3moxings.CanShu)ml3moxings.CanShu{
 }
 
 func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
-	//CREATE TABLE shuJuKuMing.BiaoMing (
+	//CREATE TABLE caoZuoKu.BiaoMing (
 	// `ZhuJian` BIGINT(20) NOT NULL,
 	// `MingCheng` VARCHAR(50) NOT NULL DEFAULT 'hfx',
 	// `BianMa` VARCHAR(50) NOT NULL DEFAULT 'hfx',
@@ -57,8 +57,8 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
   // 要重点命名清楚每个中间变量的意义，ShuJuKu是需要访问的数据库，BiaoMing是需要访问的数据库下的表，字段中的ShuJuKu是值
 
   canShuYiGe := canShu.ShuJu[ml2changliangs.Sz0]
-  shuJuKuMing := canShuYiGe[ml2changliangs.ShuJuKu].(string)
-  biaoMing := canShuYiGe[ml2changliangs.BiaoMing].(string)
+  caoZuoKu := canShuYiGe[ml2changliangs.CaoZuoKu].(string)
+  caoZuoBiao := canShuYiGe[ml2changliangs.CaoZuoBiao].(string)
 	zhuJian := canShuYiGe[ml2changliangs.ZhuJian].(string)
 	suoYin := canShuYiGe[ml2changliangs.SuoYin].(string)
 	ziDuans := canShuYiGe[ml2changliangs.ZiDuans].([]map[string]interface{}) //把字段拿出来
@@ -66,9 +66,9 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	builder := strings.Builder{}
 
 	builder.WriteString("CREATE TABLE ")
-  builder.WriteString(shuJuKuMing)
+  builder.WriteString(caoZuoKu)
   builder.WriteString(ml2changliangs.FhDianHao)
-  builder.WriteString(biaoMing) 
+  builder.WriteString(caoZuoBiao) 
   builder.WriteString(" (")
 	for _, v := range ziDuans {
 		//`MingCheng` VARCHAR(50) NOT NULL DEFAULT 'hfx',
@@ -96,13 +96,13 @@ func ChuangJianBiao(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	
   sqlStr := builder.String()
 
-	dbCanShuRet := HuoQuLianJieChi(shuJuKuMing)
+	dbCanShuRet := HuoQuLianJieChi(caoZuoKu)
 
 	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
 	result, err := db.Exec(sqlStr)
   if err!=nil &&(strings.Contains(err.Error(),"1049") ||strings.Contains(err.Error(),"1146")){
     log.Println("数据库不存在",err)
-    TianJiaLianJieChi(shuJuKuMing)
+    TianJiaLianJieChi(caoZuoKu)
     ChuangJianBiao(canShu)
   }
 	log.Println("ChuangJianBiao:sqlStr,result,err---", sqlStr, result, err)

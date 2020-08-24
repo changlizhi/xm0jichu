@@ -8,43 +8,11 @@ import(
   "database/sql"
 )
 
-func XinZengXm0JiChuShuJu(canShu ml3moxings.CanShu)ml3moxings.CanShu{
-  canShuUse := ml3moxings.CanShu{}
-  canShuUse.ShuJu = []map[string]interface{}{}
-  
-  shuJuKuMing := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.XM0JICHU,
-  }
-  canShuUse.ShuJu = append(canShuUse.ShuJu, shuJuKuMing)
-  
-  biaoMing := map[string]interface{}{
-  	ml2changliangs.Ceng1: ml2changliangs.Bm1BiaoMings,
-  }
-  canShuUse.ShuJu = append(canShuUse.ShuJu, biaoMing)
-  
-  ziDuansKeyMap := map[string]interface{}{
-  	ml2changliangs.Ceng1: canShu.ShuJu,
-  }
-  
-  canShuUse.ShuJu = append(canShuUse.ShuJu, ziDuansKeyMap)
-  //这里可以进行一波并发插入看下能耗时多久
-  
-  //这里判断如果数据库不存在就添加一个再新增
-  // dbCanShuRet := HuoQuLianJieChi(shuJuKuMing)
-  // db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
-  // if db == nil{
-  //   TianJiaLianJieChi(shuJuKuMing)
-  // }
-  
-  XinZeng(canShuUse)
-  return canShuUse
-}
-
 func XinZeng(canShu ml3moxings.CanShu)ml3moxings.CanShu{
-  //insert into shuJuKuMing.table (columns) values(values)
+  //insert into caoZuoKu.caoZuoBiao (columns) values(values)
   canShuYiGe := canShu.ShuJu[ml2changliangs.Sz0]
-  shuJuKuMing := canShuYiGe[ml2changliangs.ShuJuKu].(string)
-  biaoMing := canShuYiGe[ml2changliangs.BiaoMing].(string)
+  caoZuoKu := canShuYiGe[ml2changliangs.CaoZuoKu].(string)
+  caoZuoBiao := canShuYiGe[ml2changliangs.CaoZuoBiao].(string)
   ziDuans := canShuYiGe[ml2changliangs.ZiDuans].(map[string]interface{}) //把字段拿出来
   
   keys:=[]string{}
@@ -59,9 +27,9 @@ func XinZeng(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   builder := strings.Builder{}
   builder.WriteString(" INSERT INTO ")
   
-  builder.WriteString(shuJuKuMing)
+  builder.WriteString(caoZuoKu)
   builder.WriteString(ml2changliangs.FhDianHao)
-  builder.WriteString(biaoMing)
+  builder.WriteString(caoZuoBiao)
   
   builder.WriteString(" ( ")
   builder.WriteString(strings.Join(keys,","))
@@ -70,7 +38,7 @@ func XinZeng(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   builder.WriteString(" ) ")
   
   sqlStr := builder.String()
-  dbCanShuRet := HuoQuLianJieChi(shuJuKuMing)
+  dbCanShuRet := HuoQuLianJieChi(caoZuoKu)
   db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
   result, err := db.Exec(sqlStr,values...)
   
