@@ -7,13 +7,13 @@ import (
 
 func BuChongChuan(geShu int,ziFu string)string {
 	if(geShu < ml2changliangs.Sz1){
-		return ml2changliangs.KongZiFu
+		return ml2changliangs.FhKongZiFu
 	}
 	retshuzu := []string{}
 	for i := ml2changliangs.Sz0 ;i < geShu ; i++{
 		retshuzu = append(retshuzu, ziFu)
 	}
-	return strings.Join(retshuzu, ml2changliangs.KongZiFu)
+	return strings.Join(retshuzu, ml2changliangs.FhKongZiFu)
 }
 
 func ZuoBuChong(geShu int,ziFu string,daiBuChong string) string {

@@ -1,6 +1,7 @@
 package ml2changliangs
 
 const(
+  FhKongZiFu=""
   FhKongGe=" "
   FhBoLangHao="~"
   FhGanTanHao="!"
