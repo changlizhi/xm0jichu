@@ -6,5 +6,5 @@ import(
 )
 
 func TestChuangJianJiChuBiaos(t *testing.T){
-  ml5kus.ChuangJianBm3YeWus()
+  ml5kus.ChuangJianJiChuBiao()
 }

@@ -36,6 +36,7 @@ Bm5ZiDuanXingWeiLius="Bm5ZiDuanXingWeiLius"
 Bm6ZiDuanZhiDings="Bm6ZiDuanZhiDings"
 Bm7RuCans="Bm7RuCans"
 Bm8ChuCans="Bm8ChuCans"
+Bm9YeWuXingWeiLius="Bm9YeWuXingWeiLius"
 )
 //sql常用
 const(
