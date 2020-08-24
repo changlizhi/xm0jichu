@@ -23,39 +23,6 @@ import(
 //4.查询字段表新增字段值表
 //5.会存在表没有建好但开始插入数据的情况吗？如果新建了一个业务，必然会新建相应的表。如果是基础库没有添加表呢？一般不应该出现，如果出现迁移情况也应该把这些测试方法都执行一次之后让表存在。
 
-func zuZhuangBiaoMingShuJu(shuJuKu,bianMa,mingCheng,ZhuJianBiao string)ml3moxings.CanShu{
-  canShu := ml3moxings.CanShu{}
-  canShusArr := []map[string]interface{}{}
-
-  canShus := map[string]interface{}{}
-  canShus[ml2changliangs.ShuJuKu]=shuJuKu
-  canShus[ml2changliangs.ZhuJian]=ml0gongjus.HuoQuId()
-  canShus[ml2changliangs.BianMa]=bianMa
-  canShus[ml2changliangs.MingCheng]=mingCheng
-  canShus[ml2changliangs.ZhuJianBiao]=ZhuJianBiao
-  
-  canShusArr=append(canShusArr,canShus)
-  canShu.ShuJu = canShusArr
-  return canShu
-}
-
-func TestXinZengJiChuBiao(t *testing.T){
-
-  yongHuBiao := zuZhuangBiaoMingShuJu(ml2changliangs.XM0JICHU,ml2changliangs.Ywb1YongHus,"用户",ml2changliangs.ZjBiao+ml2changliangs.Zf1+ml2changliangs.XiaoXies)
-  ml5kus.XinZengXm0JiChuShuJu(yongHuBiao)
-  
-  jueSeBiao := zuZhuangBiaoMingShuJu(ml2changliangs.XM0JICHU,ml2changliangs.Ywb2JueSes,"角色",ml2changliangs.ZjBiao+ml2changliangs.Zf2+ml2changliangs.XiaoXies)
-  ml5kus.XinZengXm0JiChuShuJu(jueSeBiao)
-  
-  ziYuanBiao := zuZhuangBiaoMingShuJu(ml2changliangs.XM0JICHU,ml2changliangs.Ywb3ZiYuans,"资源",ml2changliangs.ZjBiao+ml2changliangs.Zf3+ml2changliangs.XiaoXies)
-  ml5kus.XinZengXm0JiChuShuJu(ziYuanBiao)
-  
-  yongHuJueSeBiao := zuZhuangBiaoMingShuJu(ml2changliangs.XM0JICHU,ml2changliangs.Ywb4YongHuJueSes,"用户角色",ml2changliangs.ZjBiao+ml2changliangs.Zf4+ml2changliangs.XiaoXies)
-  ml5kus.XinZengXm0JiChuShuJu(yongHuJueSeBiao)
-  
-  jueSeZiYuanBiao := zuZhuangBiaoMingShuJu(ml2changliangs.XM0JICHU,ml2changliangs.Ywb5JueSeZiYuans,"角色资源",ml2changliangs.ZjBiao+ml2changliangs.Zf5+ml2changliangs.XiaoXies)
-  ml5kus.XinZengXm0JiChuShuJu(jueSeZiYuanBiao)
-}
 
 // func TestXinZengJueSeZiYuanJieGou(t *testing.T){
 //   jueSeZiYuanKu := map[string]interface{}{}
