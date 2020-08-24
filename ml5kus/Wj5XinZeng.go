@@ -37,9 +37,13 @@ func XinZeng(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   builder.WriteString(strings.Join(wenHaos,","))
   builder.WriteString(" ) ")
   
+  
   sqlStr := builder.String()
+
   dbCanShuRet := HuoQuLianJieChi(caoZuoKu)
+  
   db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
+  
   result, err := db.Exec(sqlStr,values...)
   
   log.Println("XinZeng:sqlStr,values,result,err---", sqlStr,values,result, err)
