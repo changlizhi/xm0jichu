@@ -45,7 +45,6 @@ func ChaXun(canShu ml3moxings.CanShu)ml3moxings.CanShu{
   db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
   
   rows, err := db.Query(sqlStr,values...)
-  
   //在没有报错的情况下可以执行Next和Scan方法把所有查到的字段值拿出来放到CanShu里返回回去
   retShuJu := scanRet(chaXunZiDuans,rows)
   ret := ml3moxings.CanShu{
@@ -56,6 +55,17 @@ func ChaXun(canShu ml3moxings.CanShu)ml3moxings.CanShu{
 }
 
 func scanRet(lies []string,rows *sql.Rows)[]map[string]interface{}{
+  //必须保证查到的列顺序和传入的列顺序一致，否则将会匹配失败
+  dbCols,err := rows.Columns()
+  if err != nil{
+    log.Println("查询数据库失败，请注意检查！")
+  }
+  for i,_ :=range dbCols{
+    if dbCols[i] != lies[i]{
+      log.Println("数据库返回的字段顺序和查询时字段顺序不一致，请注意检查")
+    }
+  }
+  //保证了顺序之后再Scan就没问题了
 	ret := []map[string]interface{}{}
 	for rows.Next() {//每一行
 		tempLie := make([]string,len(lies))
