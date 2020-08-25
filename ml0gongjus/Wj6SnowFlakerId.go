@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	SequenceBits       = uint(10)     //自增ID 所占用位置
-	DistrictIdBits     = uint(5) //区域 所占用位置
+	SequenceBits       = uint(10) //自增ID 所占用位置
+	DistrictIdBits     = uint(5)  //区域 所占用位置
 	DistrictIdShift    = SequenceBits + NodeIdBits
 	NodeId             = int64(2)     //自定义NodeId
 	NodeIdBits         = uint(9)      //节点 所占位置

@@ -7,7 +7,7 @@ import (
 
 func String2Time(str, tmpl string) time.Time {
 	//获取本地location
-	loc, _ := time.LoadLocation(ml2changliangs.Local)                 //重要：获取时区
+	loc, _ := time.LoadLocation(ml2changliangs.Local)  //重要：获取时区
 	theTime, _ := time.ParseInLocation(tmpl, str, loc) //使用模板在对应时区转化为time.time类型
 	return theTime
 }

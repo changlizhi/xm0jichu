@@ -1,21 +1,23 @@
 package ml1gongjustests
-import(
-  "log"
-  "testing"
-  "xm0jichu/ml0gongjus"
-  "time"
+
+import (
+	"log"
+	"testing"
+	"time"
+	"xm0jichu/ml0gongjus"
 )
-func TestHuoQuId(t *testing.T){
-  ret := ml0gongjus.HuoQuId()
-  log.Println(ret)
+
+func TestHuoQuId(t *testing.T) {
+	ret := ml0gongjus.HuoQuId()
+	log.Println(ret)
 }
-func TestHuoQuIdZiFu(t *testing.T){
-  for i:=0;i<100000;i++{
-    go func(i int){
-      ret := ml0gongjus.HuoQuIdZiFu()
-      log.Println("TestHuoQuIdZiFu---",i,ret,len(ret))
-    }(i)
-  }
-  time.Sleep(time.Duration(5) * time.Hour)
-  
+func TestHuoQuIdZiFu(t *testing.T) {
+	for i := 0; i < 100000; i++ {
+		go func(i int) {
+			ret := ml0gongjus.HuoQuIdZiFu()
+			log.Println("TestHuoQuIdZiFu---", i, ret, len(ret))
+		}(i)
+	}
+	time.Sleep(time.Duration(5) * time.Hour)
+
 }

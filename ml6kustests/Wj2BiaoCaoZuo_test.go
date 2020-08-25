@@ -18,17 +18,17 @@ import (
 func TestChuangJianBiaoMingBiao(t *testing.T) {
 	canShu := ml3moxings.CanShu{}
 	canShu.ShuJu = []map[string]interface{}{}
-  shuJu0 := ml2changliangs.JiChuBiao[ml2changliangs.Bm1BiaoMings].(map[string]interface{})
+	shuJu0 := ml2changliangs.JiChuBiao[ml2changliangs.Bm1BiaoMings].(map[string]interface{})
 
-  canShu.ShuJu = append(canShu.ShuJu, shuJu0)
-  ml5kus.ChuangJianBiao(canShu)
+	canShu.ShuJu = append(canShu.ShuJu, shuJu0)
+	ml5kus.ChuangJianBiao(canShu)
 }
 
-func TestSheZhiWeiYiSuoYin(t *testing.T){
+func TestSheZhiWeiYiSuoYin(t *testing.T) {
 	canShu := ml3moxings.CanShu{}
 	canShu.ShuJu = []map[string]interface{}{}
-  shuJu0 := ml2changliangs.JiChuBiao[ml2changliangs.Bm1BiaoMings].(map[string]interface{})
+	shuJu0 := ml2changliangs.JiChuBiao[ml2changliangs.Bm1BiaoMings].(map[string]interface{})
 
-  canShu.ShuJu = append(canShu.ShuJu, shuJu0)
+	canShu.ShuJu = append(canShu.ShuJu, shuJu0)
 	ml5kus.SheZhiWeiYiSuoYin(canShu)
 }
