@@ -9,7 +9,7 @@ func init() {
 }
 
 var (
-	suoShiLi  sync.Once
+	SuoShiLi  sync.Once
 	JiChuBiao = map[string]interface{}{}
 )
 
@@ -188,7 +188,7 @@ func tianJiaBm1BiaoMings() {
 }
 
 func chuShiHuaJiChuBiaoJieGou() {
-	suoShiLi.Do(func() { //这里需要把已存在的都纳入进来，所以需要新建一个配置文件，这个配置文件用go写成
+	SuoShiLi.Do(func() { //这里需要把已存在的都纳入进来，所以需要新建一个配置文件，这个配置文件用go写成
 		tianJiaBm1BiaoMings()
 		tianJiaBm2ZiDuans()
 		tianJiaBm3YeWus()
