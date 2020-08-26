@@ -3,14 +3,10 @@ package ml5kus
 import (
 	"xm0jichu/ml0gongjus"
 	"xm0jichu/ml2changliangs"
-	"xm0jichu/ml3moxings"
 )
 
 func XinZengBm1BiaoMings() {
 	//数据库会初始化所以不需要自己操作，但是表不会，所以还要创建数据表之后再进行新增，新增完之后删除数据库
-	canShu := ml3moxings.CanShu{}
-	canShu.ShuJu = []map[string]interface{}{}
-
 	shuJu0 := map[string]interface{}{
 		ml2changliangs.CaoZuoKu:   ml2changliangs.XM0JICHU,
 		ml2changliangs.CaoZuoBiao: ml2changliangs.Bm1BiaoMings,
@@ -59,7 +55,6 @@ func XinZengBm1BiaoMings() {
 	}
 	for _, v := range ziDuans {
 		shuJu0[ml2changliangs.ZiDuans] = v
-		canShu.ShuJu = append(canShu.ShuJu, shuJu0)
-		XinZeng(canShu)
+		XinZeng(shuJu0)
 	}
 }

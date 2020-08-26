@@ -3,7 +3,6 @@ package ml5kus
 import (
 	"xm0jichu/ml0gongjus"
 	"xm0jichu/ml2changliangs"
-	"xm0jichu/ml3moxings"
 )
 
 func XinZengBm2ZiDuansYwb1YongHus() {
@@ -11,9 +10,6 @@ func XinZengBm2ZiDuansYwb1YongHus() {
 	caoZuoBiao := ml2changliangs.Bm2ZiDuans
 
 	//默认有数据库，在调用此方法之前必须自己保证数据库已存在
-	canShu := ml3moxings.CanShu{}
-	canShu.ShuJu = []map[string]interface{}{}
-
 	shuJu0 := map[string]interface{}{
 		ml2changliangs.CaoZuoKu:   ml2changliangs.XM0JICHU,
 		ml2changliangs.CaoZuoBiao: caoZuoBiao,
@@ -35,8 +31,7 @@ func XinZengBm2ZiDuansYwb1YongHus() {
 	}
 	for _, v := range ziDuans {
 		shuJu0[ml2changliangs.ZiDuans] = v
-		canShu.ShuJu = append(canShu.ShuJu, shuJu0)
-		XinZeng(canShu)
+		XinZeng(shuJu0)
 	}
 	// ml5kus.ShanChuJiChuKu()//测试完成后删除数据库，基础测试在所有的测试方法中都不需要前置测试存在。
 }
@@ -107,7 +102,6 @@ func XinZengBm2ZiDuansYwb1YongHus() {
 
 //   yongHuKu[ml2changliangs.ZiDuans]=yhzd
 
-//   canShu := ml3moxings.CanShu{}
 //   canShu.ShuJu = []map[string]interface{}{}
 
 //   biaoMing := map[string]interface{}{

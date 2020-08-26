@@ -1,12 +1,11 @@
 package ml6kustests
 
-import (
-	"testing"
-	"xm0jichu/ml0gongjus"
-	"xm0jichu/ml2changliangs"
-	"xm0jichu/ml3moxings"
-	"xm0jichu/ml5kus"
-)
+// import (
+// 	"testing"
+// 	"xm0jichu/ml0gongjus"
+// 	"xm0jichu/ml2changliangs"
+// 	"xm0jichu/ml5kus"
+// )
 
 //测试新增基础表数据时比较特殊，需要明确的知道
 //1.新增的数据库在哪，这个必须在系统启动时配置好，新建数据库比较麻烦，因为能拿到的链接目前只有一个，后续可以通过map的方式把链接放进去然后根据数据库名来获取新的链接，但这样真的太动态化了，很多错误需要识别。其实也不是不行，每个测试先加载数据库实例其实也是合适的。

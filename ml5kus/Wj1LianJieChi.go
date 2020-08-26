@@ -8,7 +8,6 @@ import (
 	"strings"
 	"sync"
 	"xm0jichu/ml2changliangs"
-	"xm0jichu/ml3moxings"
 )
 
 func init() {
@@ -43,8 +42,10 @@ func chuangJianChi(shuJuKuMing string) *sql.DB {
 	return lianJieChi
 }
 
-func HuoQuLianJieChi(shuJuKuMing string) ml3moxings.CanShu {
-	ret := ml3moxings.ZuJianCeng1YiGe(chi[shuJuKuMing])
+func HuoQuLianJieChi(shuJuKuMing string) map[string]interface{} {
+	ret := map[string]interface{} {
+    ml2changliangs.Ceng1:chi[shuJuKuMing],
+  }
 	return ret
 }
 

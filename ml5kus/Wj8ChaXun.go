@@ -6,16 +6,14 @@ import (
 	"sort"
 	"strings"
 	"xm0jichu/ml2changliangs"
-	"xm0jichu/ml3moxings"
 )
 
-func ChaXun(canShu ml3moxings.CanShu) ml3moxings.CanShu {
+func ChaXun(canShu map[string]interface{}) map[string]interface{} {
 	//select ziduans from caoZuoKu.caoZuoBiao where ziDuan=?
-	canShuYiGe := canShu.ShuJu[ml2changliangs.Sz0]
-	caoZuoKu := canShuYiGe[ml2changliangs.CaoZuoKu].(string)
-	caoZuoBiao := canShuYiGe[ml2changliangs.CaoZuoBiao].(string)
-	ziDuans := canShuYiGe[ml2changliangs.ZiDuans].([]interface{})                        //把要查询的字段拿出来
-	tiaoJianHeZhis := canShuYiGe[ml2changliangs.TiaoJianHeZhis].(map[string]interface{}) //把字段拿出来
+	caoZuoKu := canShu[ml2changliangs.CaoZuoKu].(string)
+	caoZuoBiao := canShu[ml2changliangs.CaoZuoBiao].(string)
+	ziDuans := canShu[ml2changliangs.ZiDuans].([]interface{})                        //把要查询的字段拿出来
+	tiaoJianHeZhis := canShu[ml2changliangs.TiaoJianHeZhis].(map[string]interface{}) //把字段拿出来
 
 	chaXunZiDuans := []string{}
 	for _, v := range ziDuans {
@@ -42,15 +40,14 @@ func ChaXun(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	}
 
 	sqlStr := builder.String()
-	dbCanShuRet := HuoQuLianJieChi(caoZuoKu)
-	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
+	db := HuoQuLianJieChi(caoZuoKu)[ml2changliangs.Ceng1].(*sql.DB)
 
 	rows, err := db.Query(sqlStr, values...)
 	//在没有报错的情况下可以执行Next和Scan方法把所有查到的字段值拿出来放到CanShu里返回回去
 	retShuJu := scanRet(chaXunZiDuans, rows)
-	ret := ml3moxings.CanShu{
-		ShuJu: retShuJu,
-	}
+	ret := map[string]interface{}{
+    ml2changliangs.Ceng1:retShuJu,
+  }
 	log.Println("XinZeng:sqlStr,values,err,ret---", sqlStr, values, err, ret)
 	return canShu
 }

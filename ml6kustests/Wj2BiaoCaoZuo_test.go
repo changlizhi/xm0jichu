@@ -3,7 +3,6 @@ package ml6kustests
 import (
 	"testing"
 	"xm0jichu/ml2changliangs"
-	"xm0jichu/ml3moxings"
 	"xm0jichu/ml5kus"
 )
 
@@ -16,19 +15,11 @@ import (
 // 这几个基础表将会是整个系统的产生地。
 
 func TestChuangJianBiaoMingBiao(t *testing.T) {
-	canShu := ml3moxings.CanShu{}
-	canShu.ShuJu = []map[string]interface{}{}
 	shuJu0 := ml2changliangs.JiChuBiao[ml2changliangs.Bm1BiaoMings].(map[string]interface{})
-
-	canShu.ShuJu = append(canShu.ShuJu, shuJu0)
-	ml5kus.ChuangJianBiao(canShu)
+	ml5kus.ChuangJianBiao(shuJu0)
 }
 
 func TestSheZhiWeiYiSuoYin(t *testing.T) {
-	canShu := ml3moxings.CanShu{}
-	canShu.ShuJu = []map[string]interface{}{}
 	shuJu0 := ml2changliangs.JiChuBiao[ml2changliangs.Bm1BiaoMings].(map[string]interface{})
-
-	canShu.ShuJu = append(canShu.ShuJu, shuJu0)
-	ml5kus.SheZhiWeiYiSuoYin(canShu)
+	ml5kus.SheZhiWeiYiSuoYin(shuJu0)
 }

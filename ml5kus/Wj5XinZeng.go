@@ -5,15 +5,13 @@ import (
 	"log"
 	"strings"
 	"xm0jichu/ml2changliangs"
-	"xm0jichu/ml3moxings"
 )
 
-func XinZeng(canShu ml3moxings.CanShu) ml3moxings.CanShu {
+func XinZeng(canShu map[string]interface{}) map[string]interface{} {
 	//insert into caoZuoKu.caoZuoBiao (columns) values(values)
-	canShuYiGe := canShu.ShuJu[ml2changliangs.Sz0]
-	caoZuoKu := canShuYiGe[ml2changliangs.CaoZuoKu].(string)
-	caoZuoBiao := canShuYiGe[ml2changliangs.CaoZuoBiao].(string)
-	ziDuans := canShuYiGe[ml2changliangs.ZiDuans].(map[string]interface{}) //把字段拿出来
+	caoZuoKu := canShu[ml2changliangs.CaoZuoKu].(string)
+	caoZuoBiao := canShu[ml2changliangs.CaoZuoBiao].(string)
+	ziDuans := canShu[ml2changliangs.ZiDuans].(map[string]interface{}) //把字段拿出来
 
 	keys := []string{}
 	wenHaos := []string{}
@@ -38,13 +36,8 @@ func XinZeng(canShu ml3moxings.CanShu) ml3moxings.CanShu {
 	builder.WriteString(" ) ")
 
 	sqlStr := builder.String()
-
-	dbCanShuRet := HuoQuLianJieChi(caoZuoKu)
-
-	db := ml3moxings.HuoQuCeng1YiGe(dbCanShuRet).(*sql.DB)
-
+	db := HuoQuLianJieChi(caoZuoKu)[ml2changliangs.Ceng1].(*sql.DB)
 	result, err := db.Exec(sqlStr, values...)
-
 	log.Println("XinZeng:sqlStr,values,result,err---", sqlStr, values, result, err)
 	return canShu
 }
