@@ -7,11 +7,11 @@ import (
 )
 
 func TestChaXun(t *testing.T) {
-	shuju0 := ml2changliangs.HuoQuJiChuBiaoJieGou(ml2changliangs.Bm1BiaoMings)
+	shuJu0 := ml2changliangs.HuoQuJiChuBiaoJieGou(ml2changliangs.Bm1BiaoMings)
 
-	bm1BiaoMingsZiDuans := shuju0[ml2changliangs.ZiDuans].([]map[string]interface{})
+	bm1BiaoMingsZiDuans := shuJu0[ml2changliangs.ZiDuans].([]map[string]interface{})
 
-	ml5kus.ChuangJianBiao(shuju0)
+	ml5kus.ChuangJianBiao(shuJu0)
 	//初始化一些数据进去
 	ml5kus.XinZengBm1BiaoMings()
 
