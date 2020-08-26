@@ -59,7 +59,10 @@ func ShanChuKu(shuJuKuMing string) {
 	db := chi[ml2changliangs.XiTongKu] //用test库获取链接
 	sqlStr := "DROP DATABASE " + shuJuKuMing
 	result, err := db.Exec(sqlStr) //这里是为了避免无数据库的情况发生，做一个容错
-	log.Println("删除数据库:", sqlStr, result, err, chi)
+  if err == nil{
+    chi[shuJuKuMing] = nil
+    log.Println("删除数据库:", sqlStr, result, err, chi)
+  }
 }
 
 func ShanChuJiChuKu() {
