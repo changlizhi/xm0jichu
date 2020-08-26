@@ -1,6 +1,6 @@
 package ml2changliangs
 
-func Bm1BiaoMingsJieGou() map[string]interface{}{
+func Bm1BiaoMingsJieGou() map[string]interface{} {
 	shuJu0 := map[string]interface{}{
 		CaoZuoKu:   XM0JICHU,
 		CaoZuoBiao: Bm1BiaoMings,
@@ -16,4 +16,3 @@ func Bm1BiaoMingsJieGou() map[string]interface{}{
 	}
 	return shuJu0
 }
-

@@ -46,8 +46,8 @@ func ChaXun(canShu map[string]interface{}) map[string]interface{} {
 	//在没有报错的情况下可以执行Next和Scan方法把所有查到的字段值拿出来放到CanShu里返回回去
 	retShuJu := scanRet(chaXunZiDuans, rows)
 	ret := map[string]interface{}{
-    ml2changliangs.Ceng1:retShuJu,
-  }
+		ml2changliangs.Ceng1: retShuJu,
+	}
 	log.Println("XinZeng:sqlStr,values,err,ret---", sqlStr, values, err, ret)
 	return canShu
 }

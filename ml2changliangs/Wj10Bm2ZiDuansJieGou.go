@@ -1,6 +1,6 @@
 package ml2changliangs
 
-func Bm2ZiDuansJieGou() map[string]interface{}{
+func Bm2ZiDuansJieGou() map[string]interface{} {
 	// 字段表：主键，名称，编码，字段值表，正则，是否指定，是否有行为，长度
 	shuJu0 := map[string]interface{}{
 		CaoZuoKu:   XM0JICHU,

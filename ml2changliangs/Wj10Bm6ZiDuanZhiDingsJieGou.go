@@ -1,6 +1,6 @@
 package ml2changliangs
 
-func Bm6ZiDuanZhiDingsJieGou() map[string]interface{}{
+func Bm6ZiDuanZhiDingsJieGou() map[string]interface{} {
 	// 字段指定表：主键，字段主键，指定编码，可能值，可能值描述。//字段指定跟字段是一对多的，一个字段有多个指定值
 	shuJu0 := map[string]interface{}{
 		CaoZuoKu:   XM0JICHU,

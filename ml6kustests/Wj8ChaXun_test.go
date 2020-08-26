@@ -7,7 +7,7 @@ import (
 )
 
 func TestChaXun(t *testing.T) {
-  shuju0 := ml2changliangs.HuoQuJiChuBiaoJieGou(ml2changliangs.Bm1BiaoMings)
+	shuju0 := ml2changliangs.HuoQuJiChuBiaoJieGou(ml2changliangs.Bm1BiaoMings)
 
 	bm1BiaoMingsZiDuans := shuju0[ml2changliangs.ZiDuans].([]map[string]interface{})
 
@@ -21,13 +21,13 @@ func TestChaXun(t *testing.T) {
 		chaXunZiDuans = append(chaXunZiDuans, v[ml2changliangs.ZiDuanMing])
 	}
 
-  shuJu1:=map[string]interface{}{
-    ml2changliangs.CaoZuoKu:   ml2changliangs.XM0JICHU,
-    ml2changliangs.CaoZuoBiao: ml2changliangs.Bm1BiaoMings,
-    ml2changliangs.ZiDuans:    chaXunZiDuans,
-    ml2changliangs.TiaoJianHeZhis: map[string]interface{}{
-      ml2changliangs.BianMa: ml2changliangs.Ywb1YongHus, //查询这个条件的数据
-    },
-  }
+	shuJu1 := map[string]interface{}{
+		ml2changliangs.CaoZuoKu:   ml2changliangs.XM0JICHU,
+		ml2changliangs.CaoZuoBiao: ml2changliangs.Bm1BiaoMings,
+		ml2changliangs.ZiDuans:    chaXunZiDuans,
+		ml2changliangs.TiaoJianHeZhis: map[string]interface{}{
+			ml2changliangs.BianMa: ml2changliangs.Ywb1YongHus, //查询这个条件的数据
+		},
+	}
 	ml5kus.ChaXun(shuJu1)
 }

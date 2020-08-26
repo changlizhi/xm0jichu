@@ -43,9 +43,9 @@ func chuangJianChi(shuJuKuMing string) *sql.DB {
 }
 
 func HuoQuLianJieChi(shuJuKuMing string) map[string]interface{} {
-	ret := map[string]interface{} {
-    ml2changliangs.Ceng1:chi[shuJuKuMing],
-  }
+	ret := map[string]interface{}{
+		ml2changliangs.Ceng1: chi[shuJuKuMing],
+	}
 	return ret
 }
 

@@ -1,6 +1,6 @@
 package ml2changliangs
 
-func Bm4FangFasJieGou() map[string]interface{}{
+func Bm4FangFasJieGou() map[string]interface{} {
 	// 方法表：主键，方法名，名称（带上名称是因为中文更容易理解），描述。//所有方法流里有的方法都能在这里找到。
 	shuJu0 := map[string]interface{}{
 		CaoZuoKu:   XM0JICHU,
