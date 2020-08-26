@@ -9,6 +9,7 @@ func Bm2ZiDuansJieGou() map[string]interface{} {
 		ZhuJian:    ZhuJian,
 		ZiDuans: []map[string]interface{}{
 			ZuZhuangBIGINT(ZhuJian, "20"),
+			ZuZhuangVARCHAR(SuoShuBiao, "50"),
 			ZuZhuangVARCHAR(MingCheng, "50"),
 			ZuZhuangVARCHAR(BianMa, "50"),
 			ZuZhuangVARCHAR(ZhiBiao, "50"),

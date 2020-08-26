@@ -48,6 +48,13 @@ const (
 
 //字段名
 const (
+  CaoZuoZhis       = "CaoZuoZhis"
+  TouXiang         = "TouXiang"
+  YouXiang         = "YouXiang"
+  DiZhi            = "DiZhi"
+  ZhuangTai        = "ZhuangTai"
+  TiZhong          = "TiZhong"
+  SuoShuBiao       = "SuoShuBiao"
 	ShuJuKu          = "ShuJuKu"
 	ZhiDingBianMa    = "ZhiDingBianMa"
 	XingWeiBianMa    = "XingWeiBianMa"
