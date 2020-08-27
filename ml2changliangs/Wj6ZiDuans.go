@@ -49,6 +49,7 @@ const (
 
 //字段名
 const (
+  Zhi              = "Zhi"
   XuJianKu         = "XuJianKu"
   LianJie          = "LianJie"
   ShuoMing         = "ShuoMing"

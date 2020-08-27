@@ -73,7 +73,8 @@ func ShanChuJiChuKu() {
 
 func TianJiaLianJieChi(shuJuKuMing string) {
 	if chi[shuJuKuMing] != nil {
-		return
+		log.Printf("已存在，请直接使用:chi[%s]=", shuJuKuMing,chi[shuJuKuMing])
+    return
 	}
 	ChuangJianKu(shuJuKuMing)
 	lianJieChi := chuangJianChi(shuJuKuMing)

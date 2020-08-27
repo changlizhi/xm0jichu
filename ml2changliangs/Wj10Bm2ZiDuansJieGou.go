@@ -16,7 +16,7 @@ func Bm2ZiDuansJieGou() map[string]interface{} {
 			ZuZhuangVARCHAR(ZhengZe, "50"),
 			ZuZhuangINT(ShiFouZhiDing, "1"),
 			ZuZhuangINT(ShiFouYouXingWei, "1"),
-			ZuZhuangVARCHAR(ChangDu, "5"),
+			ZuZhuangINT(ChangDu, "1"),
 		},
 	}
 	return shuJu0

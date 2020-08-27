@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log"
 	"strings"
+	"xm0jichu/ml0gongjus"
 	"xm0jichu/ml2changliangs"
 )
 
@@ -13,9 +14,9 @@ import (
 
 func SheZhiWeiYiSuoYin(canShu map[string]interface{}) map[string]interface{} {
 	//ALTER TABLE XT0JICHU.bm1biaomings ADD UNIQUE INDEX BianMa (BianMa);
-	caoZuoKu := canShu[ml2changliangs.CaoZuoKu].(string)
-	caoZuoBiao := canShu[ml2changliangs.CaoZuoBiao].(string)
-	suoYin := canShu[ml2changliangs.SuoYin].(string)
+	caoZuoKu := ml0gongjus.DuanYanZiFuChuan(canShu[ml2changliangs.CaoZuoKu])
+	caoZuoBiao := ml0gongjus.DuanYanZiFuChuan(canShu[ml2changliangs.CaoZuoBiao])
+	suoYin := ml0gongjus.DuanYanZiFuChuan(canShu[ml2changliangs.SuoYin])
 	builder := strings.Builder{}
 
 	builder.WriteString(" ALTER TABLE ")
@@ -50,10 +51,10 @@ func ChuangJianBiao(canShu map[string]interface{}) map[string]interface{} {
 	// 后续强化这个校验
 	// 要重点命名清楚每个中间变量的意义，ShuJuKu是需要访问的数据库，BiaoMing是需要访问的数据库下的表，字段中的ShuJuKu是值
 
-	caoZuoKu := canShu[ml2changliangs.CaoZuoKu].(string)
-	caoZuoBiao := canShu[ml2changliangs.CaoZuoBiao].(string)
-	zhuJian := canShu[ml2changliangs.ZhuJian].(string)
-	suoYin := canShu[ml2changliangs.SuoYin].(string)
+	caoZuoKu := ml0gongjus.DuanYanZiFuChuan(canShu[ml2changliangs.CaoZuoKu])
+	caoZuoBiao := ml0gongjus.DuanYanZiFuChuan(canShu[ml2changliangs.CaoZuoBiao])
+	zhuJian := ml0gongjus.DuanYanZiFuChuan(canShu[ml2changliangs.ZhuJian])
+	suoYin := ml0gongjus.DuanYanZiFuChuan(canShu[ml2changliangs.SuoYin])
 	ziDuans := canShu[ml2changliangs.ZiDuans].([]map[string]interface{}) //把字段拿出来
 
 	builder := strings.Builder{}
@@ -65,20 +66,20 @@ func ChuangJianBiao(canShu map[string]interface{}) map[string]interface{} {
 	builder.WriteString(" (")
 	for _, v := range ziDuans {
 		//`MingCheng` VARCHAR(50) NOT NULL DEFAULT 'hfx',
-		builder.WriteString(v[ml2changliangs.ZiDuanMing].(string))
+		builder.WriteString(ml0gongjus.DuanYanZiFuChuan(v[ml2changliangs.ZiDuanMing]))
 		builder.WriteString(" ")
-		builder.WriteString(v[ml2changliangs.LeiXing].(string))
+		builder.WriteString(ml0gongjus.DuanYanZiFuChuan(v[ml2changliangs.LeiXing]))
 		builder.WriteString("(")
-		builder.WriteString(v[ml2changliangs.ChangDu].(string))
+		builder.WriteString(ml0gongjus.DuanYanZiFuChuan(v[ml2changliangs.ChangDu]))
 		builder.WriteString(") NOT NULL DEFAULT ")
-		builder.WriteString(v[ml2changliangs.MoRenZhi].(string))
+		builder.WriteString(ml0gongjus.DuanYanZiFuChuan(v[ml2changliangs.MoRenZhi]))
 		builder.WriteString(",")
 	}
 
 	builder.WriteString("PRIMARY KEY (")
 	builder.WriteString(zhuJian)
 	builder.WriteString(")")
-	if suoYin != "" {
+	if suoYin != ml2changliangs.FhKongZiFu {
 		builder.WriteString(",UNIQUE INDEX ")
 		builder.WriteString(suoYin)
 		builder.WriteString(" (")

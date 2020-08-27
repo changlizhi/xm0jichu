@@ -49,7 +49,7 @@ func ChaXun(canShu map[string]interface{}) map[string]interface{} {
 		ml2changliangs.Ceng1: retShuJu,
 	}
 	log.Println("ChaXun:sqlStr,values,err,ret---", sqlStr, values, err, ret)
-	return canShu
+	return ret
 }
 
 func scanRet(lies []string, rows *sql.Rows) []map[string]interface{} {
