@@ -12,7 +12,7 @@ package ml2changliangs
 // ZuZhuangVARCHAR(SuoShuBiao,"5"),
 
 
-func YeWuBiaoZiDuan(biaoMing string) map[string]interface{} {
+func YeWuBiaoZiDuans(biaoMing string) map[string]interface{} {
 	ret := map[string]interface{}{
     Ywb1YongHus:Ywb1YongHusZiDuans(),
     Ywb2JueSes:Ywb2JueSesZiDuans(),

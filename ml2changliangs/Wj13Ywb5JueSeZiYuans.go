@@ -6,9 +6,21 @@ func Ywb5JueSeZiYuansZiDuans()map[string]interface{}{
     ZiDuans:[]map[string]interface{}{
       map[string]interface{}{
         SuoShuBiao:Ywb5JueSeZiYuans,
-        BianMa:Ywb5JueSeZiYuans+TiZhong,
-        MingCheng:"用户体重",
-        ZhiBiao:ZdBiao+Zf9+XiaoXies,
+        BianMa:Ywb5JueSeZiYuans+ZhuJian,
+        MingCheng:"角色资源主键",
+        ZhiBiao:ZdBiao+Zf2+Zf4+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb5JueSeZiYuans,
+        BianMa:Ywb5JueSeZiYuans+Ywb2JueSes+ZhuJian,
+        MingCheng:"角色资源角色主键",
+        ZhiBiao:ZdBiao+Zf2+Zf5+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb5JueSeZiYuans,
+        BianMa:Ywb5JueSeZiYuans+Ywb3ZiYuans+ZhuJian,
+        MingCheng:"角色资源资源主键",
+        ZhiBiao:ZdBiao+Zf2+Zf6+XiaoXies,
       },
     },
   }

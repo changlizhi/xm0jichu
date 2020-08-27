@@ -6,9 +6,39 @@ func Ywb3ZiYuansZiDuans()map[string]interface{}{
     ZiDuans:[]map[string]interface{}{
       map[string]interface{}{
         SuoShuBiao:Ywb3ZiYuans,
-        BianMa:Ywb3ZiYuans+TiZhong,
-        MingCheng:"用户体重",
-        ZhiBiao:ZdBiao+Zf9+XiaoXies,
+        BianMa:Ywb3ZiYuans+ZhuJian,
+        MingCheng:"资源主键",
+        ZhiBiao:ZdBiao+Zf1+Zf5+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb3ZiYuans,
+        BianMa:Ywb3ZiYuans+LeiXing,
+        MingCheng:"资源类型",
+        ZhiBiao:ZdBiao+Zf1+Zf6+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb3ZiYuans,
+        BianMa:Ywb3ZiYuans+BianMa,
+        MingCheng:"资源编码",
+        ZhiBiao:ZdBiao+Zf1+Zf7+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb3ZiYuans,
+        BianMa:Ywb3ZiYuans+MingCheng,
+        MingCheng:"资源名称",
+        ZhiBiao:ZdBiao+Zf1+Zf8+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb3ZiYuans,
+        BianMa:Ywb3ZiYuans+LianJie,
+        MingCheng:"资源链接",
+        ZhiBiao:ZdBiao+Zf1+Zf9+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb3ZiYuans,
+        BianMa:Ywb3ZiYuans+MiaoShu,
+        MingCheng:"资源描述",
+        ZhiBiao:ZdBiao+Zf2+Zf0+XiaoXies,
       },
     },
   }

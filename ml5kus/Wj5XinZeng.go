@@ -5,23 +5,30 @@ import (
 	"log"
 	"strings"
 	"xm0jichu/ml2changliangs"
+	"xm0jichu/ml0gongjus"
 )
 
 func XinZeng(canShu map[string]interface{}) map[string]interface{} {
 	//insert into caoZuoKu.caoZuoBiao (columns) values(values)
 	caoZuoKu := canShu[ml2changliangs.CaoZuoKu].(string)
 	caoZuoBiao := canShu[ml2changliangs.CaoZuoBiao].(string)
-	ziDuans := canShu[ml2changliangs.ZiDuans].(map[string]interface{}) //把字段拿出来
+	caoZuoZhis := canShu[ml2changliangs.CaoZuoZhis].(map[string]interface{}) //把字段拿出来
 
 	keys := []string{}
 	wenHaos := []string{}
 	values := []interface{}{}
-	for k, v := range ziDuans {
+  //默认ZhuJian全都通过snowflakerid得到，但是业务表中主键是从主键表来的。
+  if caoZuoZhis[ml2changliangs.ZhuJian]==nil{
+    keys = append(keys, ml2changliangs.ZhuJian)
+    values = append(values, ml0gongjus.HuoQuId())
+    wenHaos = append(wenHaos, ml2changliangs.FhWenHao)
+  }
+	for k, v := range caoZuoZhis {
 		keys = append(keys, k)
 		values = append(values, v)
 		wenHaos = append(wenHaos, ml2changliangs.FhWenHao)
 	}
-
+  
 	builder := strings.Builder{}
 	builder.WriteString(" INSERT INTO ")
 

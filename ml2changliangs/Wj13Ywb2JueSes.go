@@ -6,12 +6,35 @@ func Ywb2JueSesZiDuans()map[string]interface{}{
     ZiDuans:[]map[string]interface{}{
       map[string]interface{}{
         SuoShuBiao:Ywb2JueSes,
-        BianMa:Ywb2JueSes+TiZhong,
-        MingCheng:"用户体重",
-        ZhiBiao:ZdBiao+Zf9+XiaoXies,
+        BianMa:Ywb2JueSes+ZhuJian,
+        MingCheng:"角色主键",
+        ZhiBiao:ZdBiao+Zf1+Zf0+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb2JueSes,
+        BianMa:Ywb2JueSes+BianMa,
+        MingCheng:"角色编码",
+        ZhiBiao:ZdBiao+Zf1+Zf1+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb2JueSes,
+        BianMa:Ywb2JueSes+MingCheng,
+        MingCheng:"角色名称",
+        ZhiBiao:ZdBiao+Zf1+Zf2+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb2JueSes,
+        BianMa:Ywb2JueSes+ZhuangTai,
+        MingCheng:"角色状态",
+        ZhiBiao:ZdBiao+Zf1+Zf3+XiaoXies,
+      },
+      map[string]interface{}{
+        SuoShuBiao:Ywb2JueSes,
+        BianMa:Ywb2JueSes+ShuoMing,
+        MingCheng:"角色说明",
+        ZhiBiao:ZdBiao+Zf1+Zf4+XiaoXies,
       },
     },
   }
   return ret
 }
-
