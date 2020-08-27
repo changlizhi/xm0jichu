@@ -37,6 +37,7 @@ const (
 	Bm7RuCans            = "Bm7RuCans"
 	Bm8ChuCans           = "Bm8ChuCans"
 	Bm9YeWuXingWeiLius   = "Bm9YeWuXingWeiLius"
+	Bm10BiaoCis          = "Bm10BiaoCis"
 )
 
 //sql常用

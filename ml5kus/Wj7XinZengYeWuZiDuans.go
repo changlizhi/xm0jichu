@@ -4,10 +4,9 @@ import (
 	"xm0jichu/ml2changliangs"
   "log"
 )
-//这个方法其实是管理员操作的，现在放到自动完成里不合适
-func XinZengYeWuJieGous() {
-	//数据库会初始化所以不需要自己操作，但是表不会，所以还要创建数据表之后再进行新增，新增完之后删除数据库
-shuJu0 := ml2changliangs.YeWuBiaoJieGous(ml2changliangs.FhKongZiFu)
+//所以新增字段这个还是必须的，因为要从数据库里查出来进行数据库的新增和修改等
+func XinZengYeWuZiDuans() {
+  shuJu0 := ml2changliangs.YeWuBiaoJieGous(ml2changliangs.FhKongZiFu)
   for k,v := range shuJu0{
     log.Println()
     log.Println("k,v---",k,v)

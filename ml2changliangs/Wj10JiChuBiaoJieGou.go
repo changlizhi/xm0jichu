@@ -11,6 +11,7 @@ func HuoQuJiChuBiaoJieGou(biaoMing string) map[string]interface{} {
 		Bm7RuCans:            Bm7RuCansJieGou(),
 		Bm8ChuCans:           Bm8ChuCansJieGou(),
 		Bm9YeWuXingWeiLius:   Bm9YeWuXingWeiLiusJieGou(),
+    Bm10BiaoCis:          Bm10BiaoCisJieGou(),//所有字段和表编码的拆分选择词表
 	}
 	if biaoMing == FhKongZiFu {
 		return ret
