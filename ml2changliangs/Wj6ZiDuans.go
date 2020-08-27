@@ -4,7 +4,7 @@ package ml2changliangs
 const (
 	TEST       = "TEST"
 	MYSQL      = "MYSQL"
-	XM0JICHU   = "XM0JICHU"
+	XT0JICHU   = "XT0JICHU"
 	XM1YONGHU  = "XM1YONGHU"
 	XM2HUODONG = "XM2HUODONG"
 	XM3YANLUN  = "XM3YANLUN"
@@ -49,6 +49,7 @@ const (
 
 //字段名
 const (
+  XuJianKu         = "XuJianKu"
   LianJie          = "LianJie"
   ShuoMing         = "ShuoMing"
   CaoZuoZhis       = "CaoZuoZhis"

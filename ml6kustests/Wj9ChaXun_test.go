@@ -11,9 +11,9 @@ func TestChaXun(t *testing.T) {
 
 	bm1BiaoMingsZiDuans := shuJu0[ml2changliangs.ZiDuans].([]map[string]interface{})
 
-	ml5kus.ChuangJianBiao(shuJu0)
+	ml5kus.ChuangJianJiChuBiao()
 	//初始化一些数据进去
-	ml5kus.XinZengBm1BiaoMings()
+	ml5kus.XinZengYeWuJieGous()
 
 	chaXunZiDuans := []interface{}{}
 
@@ -22,7 +22,7 @@ func TestChaXun(t *testing.T) {
 	}
 
 	shuJu1 := map[string]interface{}{
-		ml2changliangs.CaoZuoKu:   ml2changliangs.XM0JICHU,
+		ml2changliangs.CaoZuoKu:   ml2changliangs.XT0JICHU,
 		ml2changliangs.CaoZuoBiao: ml2changliangs.Bm1BiaoMings,
 		ml2changliangs.ZiDuans:    chaXunZiDuans,
 		ml2changliangs.TiaoJianHeZhis: map[string]interface{}{

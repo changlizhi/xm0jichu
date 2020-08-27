@@ -1,7 +1,7 @@
 package ml2changliangs
 func Ywb1YongHusZiDuans()map[string]interface{}{
   ret := map[string]interface{}{
-    CaoZuoKu:   XM0JICHU,
+    CaoZuoKu:   XT0JICHU,
     CaoZuoBiao: Bm2ZiDuans,//这个表里定义了多少字段就要提供多少字段值
     ZiDuans:[]map[string]interface{}{
       map[string]interface{}{

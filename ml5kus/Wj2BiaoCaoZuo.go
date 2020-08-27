@@ -12,7 +12,7 @@ import (
 //后续需要实现一下，在创建表时不做那么多限制
 
 func SheZhiWeiYiSuoYin(canShu map[string]interface{}) map[string]interface{} {
-	//ALTER TABLE xm0jichu.bm1biaomings ADD UNIQUE INDEX BianMa (BianMa);
+	//ALTER TABLE XT0JICHU.bm1biaomings ADD UNIQUE INDEX BianMa (BianMa);
 	caoZuoKu := canShu[ml2changliangs.CaoZuoKu].(string)
 	caoZuoBiao := canShu[ml2changliangs.CaoZuoBiao].(string)
 	suoYin := canShu[ml2changliangs.SuoYin].(string)

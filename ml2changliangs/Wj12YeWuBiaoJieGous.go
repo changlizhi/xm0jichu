@@ -5,7 +5,7 @@ package ml2changliangs
 // ZuZhuangVARCHAR(BianMa,"50"),
 // ZuZhuangVARCHAR(MingCheng,"50"),
 // ZuZhuangVARCHAR(ZhuJianBiao,"50"),
-// ZuZhuangVARCHAR(ShuJuKu,"50"),
+// ZuZhuangVARCHAR(XuJianKu,"50"),
 
 func YeWuBiaoJieGous(biaoMing string) map[string]interface{} {
 	ret := map[string]interface{}{

@@ -18,7 +18,7 @@ func chaXunBm1BiaoMings(canShu string)map[string]interface{}{
   }
   
   shuJu1 := map[string]interface{}{
-  	ml2changliangs.CaoZuoKu:   ml2changliangs.XM0JICHU,
+  	ml2changliangs.CaoZuoKu:   ml2changliangs.XT0JICHU,
   	ml2changliangs.CaoZuoBiao: ml2changliangs.Bm1BiaoMings,
   	ml2changliangs.ZiDuans:    chaXunZiDuans,
   	ml2changliangs.TiaoJianHeZhis: map[string]interface{}{

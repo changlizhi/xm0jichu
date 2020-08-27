@@ -3,7 +3,7 @@ package ml2changliangs
 func Bm8ChuCansJieGou() map[string]interface{} {
 	//方法出参字段表：主键，编码，名称，方法名（不用方法主键是为了清晰），类型，是否必须，父编码，描述。
 	shuJu0 := map[string]interface{}{
-		CaoZuoKu:   XM0JICHU,
+		CaoZuoKu:   XT0JICHU,
 		CaoZuoBiao: Bm8ChuCans,
 		SuoYin:     BianMa,
 		ZhuJian:    ZhuJian,
