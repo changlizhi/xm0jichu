@@ -48,7 +48,7 @@ func ChaXun(canShu map[string]interface{}) map[string]interface{} {
 	ret := map[string]interface{}{
 		ml2changliangs.Ceng1: retShuJu,
 	}
-	log.Println("XinZeng:sqlStr,values,err,ret---", sqlStr, values, err, ret)
+	log.Println("ChaXun:sqlStr,values,err,ret---", sqlStr, values, err, ret)
 	return canShu
 }
 
