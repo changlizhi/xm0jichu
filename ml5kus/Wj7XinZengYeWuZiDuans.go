@@ -4,6 +4,7 @@ import (
 	"xm0jichu/ml2changliangs"
   "log"
 )
+//这个也是管理员操作的，当有一个表时必须选中表才能进行字段的添加
 //所以新增字段这个还是必须的，因为要从数据库里查出来进行数据库的新增和修改等
 func XinZengYeWuZiDuans() {
   shuJu0 := ml2changliangs.YeWuBiaoJieGous(ml2changliangs.FhKongZiFu)
