@@ -2,6 +2,7 @@ package ml2changliangs
 
 func HuoQuJiChuBiaoJieGou(biaoMing string) map[string]interface{} {
 	ret := map[string]interface{}{
+    Bm0XiTongs:           Bm0XiTongsJieGou(),
 		Bm1BiaoMings:         Bm1BiaoMingsJieGou(),
 		Bm2ZiDuans:           Bm2ZiDuansJieGou(),
 		Bm3YeWus:             Bm3YeWusJieGou(),

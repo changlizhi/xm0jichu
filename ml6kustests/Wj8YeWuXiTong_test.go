@@ -15,3 +15,4 @@ func TestChuangJianYeWuXiTong(t *testing.T){
   ml5kus.ShanChuJiChuKu() //测试完成后删除数据库，基础测试在所有的测试方法中都不需要前置测试存在。
   
 }
+
